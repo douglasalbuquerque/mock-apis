@@ -1,13 +1,39 @@
 const express = require('express');
 const cors = require('cors');
+const basicAuth = require('express-basic-auth');
 const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Basic Auth Configuration
+const basicAuthConfig = {
+  users: {},
+  challenge: true,
+  realm: 'ERP Integration API',
+  unauthorizedResponse: (req) => {
+    return {
+      success: false,
+      message: 'Authentication required',
+      timestamp: new Date().toISOString()
+    };
+  }
+};
+
+// Set up Basic Auth credentials from environment variables
+const AUTH_USERNAME = process.env.AUTH_USERNAME || 'admin';
+const AUTH_PASSWORD = process.env.AUTH_PASSWORD || 'password123';
+
+// Add credentials to basicAuth config
+basicAuthConfig.users[AUTH_USERNAME] = AUTH_PASSWORD;
+
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Apply Basic Auth to all routes except health check
+app.use('/health', (req, res, next) => next()); // Skip auth for health check
+app.use(basicAuth(basicAuthConfig));
 
 // ======= DUMMY DATA (EXPANDED) =======
 
@@ -703,13 +729,13 @@ app.put('/orderItems/:orderItemId/status', (req, res) => {
   }
 });
 
-
-// Health check endpoint
+// Health check endpoint (sem autenticação)
 app.get('/health', (req, res) => {
   res.json({
     status: 'healthy',
     timestamp: new Date().toISOString(),
-    version: '1.0.0'
+    version: '1.0.0',
+    auth: 'enabled'
   });
 });
 
@@ -737,6 +763,7 @@ app.get('/debug/all-data', (req, res) => {
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 ERP Integration API Server running on port ${PORT}`);
+  console.log(`🔒 Basic Auth enabled - Username: ${AUTH_USERNAME}`);
   console.log(`📊 Loaded dummy data:`);
   console.log(`   - ${contacts.length} contacts`);
   console.log(`   - ${orders.length} orders`);
