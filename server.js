@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// ======= DUMMY DATA =======
+// ======= DUMMY DATA (EXPANDED) =======
 
 // Contacts dummy data
 let contacts = [
@@ -57,9 +57,17 @@ let contacts = [
     contactId: "CONT_005",
     erpId: "ERP_ORACLE_01",
     address: "654 Enterprise Ln, Seattle, WA"
+  },
+  {
+    name: "Emily Davis",
+    email: "emily.davis@startuphub.com",
+    jobTitle: "Product Manager",
+    phone: "+1-555-606-7006",
+    contactId: "CONT_006",
+    erpId: "ERP_NETSUITE_01",
+    address: "987 Innovation Dr, Denver, CO"
   }
 ];
-
 
 // Orders dummy data
 let orders = [
@@ -70,9 +78,10 @@ let orders = [
     status: "approved",
     total: 2850.75,
     erpId: "ERP_SAP_01",
-    contactId: "CONT_001", // Adicionando contactId para associar a um contato
+    contactId: "CONT_001",
     CSREmail: "jhon.scot@gmail.com",
-    CSRName: "Jhon Scot"
+    CSRName: "Jhon Scot",
+    companyName: "TechCorp"
   },
   {
     identifier: "ORD_002",
@@ -83,7 +92,8 @@ let orders = [
     erpId: "ERP_ORACLE_01",
     contactId: "CONT_002",
     CSREmail: "robert.vardy@gmail.com",
-    CSRName: "Robert Vardy"
+    CSRName: "Robert Vardy",
+    companyName: "Innovate Ltd"
   },
   {
     identifier: "ORD_003",
@@ -94,7 +104,8 @@ let orders = [
     erpId: "ERP_SAP_01",
     contactId: "CONT_003",
     CSREmail: "Sarah@gmail.com",
-    CSRName: "Sarah Costa"
+    CSRName: "Sarah Costa",
+    companyName: "TechCorp"
   },
   {
     identifier: "ORD_004",
@@ -105,7 +116,8 @@ let orders = [
     erpId: "ERP_DYNAMICS_01",
     contactId: "CONT_004",
     CSREmail: "robert.vardy@gmail.com",
-    CSRName: "Robert Vardy"
+    CSRName: "Robert Vardy",
+    companyName: "GlobalTech"
   },
   {
     identifier: "ORD_005",
@@ -116,17 +128,21 @@ let orders = [
     erpId: "ERP_ORACLE_01",
     contactId: "CONT_005",
     CSREmail: "robert.vardy@gmail.com",
-    CSRName: "Robert Vardy"
+    CSRName: "Robert Vardy",
+    companyName: "Innovate Ltd"
+  },
+  {
+    identifier: "ORD_006",
+    name: "Startup Launch Kits",
+    date: "2024-01-28T13:00:00Z",
+    status: "pending",
+    total: 2500.00,
+    erpId: "ERP_NETSUITE_01",
+    contactId: "CONT_006",
+    CSREmail: "emily.davis@startuphub.com",
+    CSRName: "Emily Davis",
+    companyName: "StartupHub"
   }
-];
-
-// Approvers dummy data
-let approvers = [
-  { email: "manager@techcorp.com", erpId: "ERP_SAP_01", role: "Manager" },
-  { email: "director@innovate.com", erpId: "ERP_ORACLE_01", role: "Director" },
-  { email: "supervisor@globaltech.com", erpId: "ERP_DYNAMICS_01", role: "Supervisor" },
-  { email: "admin@techcorp.com", erpId: "ERP_SAP_01", role: "Administrator" },
-  { email: "procurement.head@innovate.com", erpId: "ERP_ORACLE_01", role: "Procurement Head" }
 ];
 
 // Order Items dummy data
@@ -140,14 +156,9 @@ let orderItems = [
     orderId: "ORD_001",
     approvers: ["manager@techcorp.com", "admin@techcorp.com"],
     imageUrl: "https://cdn.example.com/proofs/wireless_mouse_proof.jpg",
-    specifications: [
-      { attribute: "Color", value: "Black" },
-      { attribute: "Brand", value: "Logitech" },
-      { attribute: "Connectivity", value: "Bluetooth" }
-    ],
     erpId: "ERP_SAP_01",
     size: "Standard",
-    colors: ["Black", "Gray"],
+    color: "Black",
     paperStock: "Matte Coated"
   },
   {
@@ -159,14 +170,9 @@ let orderItems = [
     orderId: "ORD_001",
     approvers: ["manager@techcorp.com"],
     imageUrl: "https://cdn.example.com/proofs/keyboard_proof.jpg",
-    specifications: [
-      { attribute: "Switch Type", value: "Cherry MX Blue" },
-      { attribute: "Backlight", value: "RGB" },
-      { attribute: "Layout", value: "Full Size" }
-    ],
     erpId: "ERP_SAP_01",
     size: "18 x 6 inches",
-    colors: ["Black", "White"],
+    color: "White",
     paperStock: "Glossy Coated"
   },
   {
@@ -178,14 +184,9 @@ let orderItems = [
     orderId: "ORD_002",
     approvers: ["director@innovate.com", "procurement.head@innovate.com"],
     imageUrl: "https://cdn.example.com/proofs/monitor_proof.jpg",
-    specifications: [
-      { attribute: "Resolution", value: "4K UHD" },
-      { attribute: "Panel Type", value: "IPS" },
-      { attribute: "Refresh Rate", value: "60Hz" }
-    ],
     erpId: "ERP_ORACLE_01",
     size: "27 inch",
-    colors: ["Black"],
+    color: "Black",
     paperStock: "Matte"
   },
   {
@@ -197,14 +198,9 @@ let orderItems = [
     orderId: "ORD_003",
     approvers: ["manager@techcorp.com"],
     imageUrl: "https://cdn.example.com/proofs/laptop_stand_proof.jpg",
-    specifications: [
-      { attribute: "Material", value: "Aluminum" },
-      { attribute: "Adjustable", value: "Yes" },
-      { attribute: "Compatibility", value: "Universal" }
-    ],
     erpId: "ERP_SAP_01",
     size: "Adjustable",
-    colors: ["Silver"],
+    color: "Silver",
     paperStock: "Glossy"
   },
   {
@@ -216,63 +212,26 @@ let orderItems = [
     orderId: "ORD_004",
     approvers: ["supervisor@globaltech.com"],
     imageUrl: "https://cdn.example.com/proofs/ssd_proof.jpg",
-    specifications: [
-      { attribute: "Capacity", value: "1TB" },
-      { attribute: "Interface", value: "NVMe" },
-      { attribute: "Warranty", value: "5 Years" }
-    ],
     erpId: "ERP_DYNAMICS_01",
     size: "2.5 inch",
-    colors: ["Black"],
+    color: "Black",
     paperStock: "Matte"
+  },
+  {
+    identifier: "OI_006",
+    name: "Startup T-Shirts",
+    quantity: 100,
+    unitPrice: 15.00,
+    status: "pending",
+    orderId: "ORD_006",
+    approvers: ["emily.davis@startuphub.com"],
+    imageUrl: "https://cdn.example.com/proofs/tshirt_proof.jpg",
+    erpId: "ERP_NETSUITE_01",
+    size: "M",
+    color: "Blue",
+    paperStock: "Cotton"
   }
 ];
-
-
-// Proofs dummy data
-/*
-let proofs = [
-  {
-    identifier: "PROOF_001",
-    orderItemId: "OI_001",
-    erpId: "ERP_SAP_01",
-    imageUrl: "https://cdn.example.com/proofs/wireless_mouse_proof.jpg",
-    status: "pending",
-    approvers: ["manager@techcorp.com", "admin@techcorp.com"]
-  },
-  {
-    identifier: "PROOF_002",
-    orderItemId: "OI_002",
-    erpId: "ERP_SAP_01",
-    imageUrl: "https://cdn.example.com/proofs/keyboard_proof.jpg",
-    status: "pending",
-    approvers: ["manager@techcorp.com"]
-  },
-  {
-    identifier: "PROOF_003",
-    orderItemId: "OI_003",
-    erpId: "ERP_ORACLE_01",
-    imageUrl: "https://cdn.example.com/proofs/monitor_proof.jpg",
-    status: "rejected",
-    ?approvers: ["director@innovate.com", "procurement.head@innovate.com"]
-  },
-  {
-    identifier: "PROOF_004",
-    orderItemId: "OI_004",
-    erpId: "ERP_SAP_01",
-    imageUrl: "https://cdn.example.com/proofs/laptop_stand_proof.jpg",
-    status: "pending",
-    approvers: ["manager@techcorp.com"]
-  },
-  {
-    identifier: "PROOF_005",
-    orderItemId: "OI_005",
-    erpId: "ERP_DYNAMICS_01",
-    imageUrl: "https://cdn.example.com/proofs/ssd_proof.jpg",
-    status: "pending",
-    approvers: ["supervisor@globaltech.com"]
-  }
-];*/
 
 // Shipments dummy data
 let shipments = [
@@ -314,6 +273,19 @@ let shipments = [
     weight: 8.5,
     orderId: "ORD_004",
     erpId: "ERP_DYNAMICS_01"
+  },
+  {
+    identifier: "SHIP_004",
+    trackingNumber: "STHUB12345",
+    carrier: "USPS",
+    shippedDate: "2024-01-29T09:00:00Z",
+    estimatedDelivery: "2024-02-02T15:00:00Z",
+    status: "pending",
+    deliveryAddress: "987 Innovation Dr, Denver, CO",
+    service: "Priority Mail",
+    weight: 15.0,
+    orderId: "ORD_006",
+    erpId: "ERP_NETSUITE_01"
   }
 ];
 
@@ -346,6 +318,13 @@ let shipmentItems = [
     orderItemId: "OI_005",
     quantity: 10,
     erpId: "ERP_DYNAMICS_01"
+  },
+  {
+    identifier: "SI_005",
+    shipmentId: "SHIP_004",
+    orderItemId: "OI_006",
+    quantity: 100,
+    erpId: "ERP_NETSUITE_01"
   }
 ];
 
