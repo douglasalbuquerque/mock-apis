@@ -19,7 +19,8 @@ let contacts = [
     jobTitle: "Procurement Manager",
     phone: "+1-555-101-2001",
     contactId: "CONT_001",
-    erpId: "ERP_SAP_01"
+    erpId: "ERP_SAP_01",
+    address: "123 Main St, New York, NY"
   },
   {
     name: "Jane Smith",
@@ -27,7 +28,8 @@ let contacts = [
     jobTitle: "Senior Buyer",
     phone: "+1-555-202-3002",
     contactId: "CONT_002",
-    erpId: "ERP_ORACLE_01"
+    erpId: "ERP_ORACLE_01",
+    address: "456 Market Ave, San Francisco, CA"
   },
   {
     name: "Mike Johnson",
@@ -35,7 +37,8 @@ let contacts = [
     jobTitle: "Operations Director",
     phone: "+1-555-303-4003",
     contactId: "CONT_003",
-    erpId: "ERP_SAP_01"
+    erpId: "ERP_SAP_01",
+    address: "789 Broadway Blvd, Chicago, IL"
   },
   {
     name: "Sarah Wilson",
@@ -43,7 +46,8 @@ let contacts = [
     jobTitle: "Category Manager",
     phone: "+1-555-404-5004",
     contactId: "CONT_004",
-    erpId: "ERP_DYNAMICS_01"
+    erpId: "ERP_DYNAMICS_01",
+    address: "321 Innovation Rd, Austin, TX"
   },
   {
     name: "Robert Brown",
@@ -51,9 +55,11 @@ let contacts = [
     jobTitle: "Finance Manager",
     phone: "+1-555-505-6005",
     contactId: "CONT_005",
-    erpId: "ERP_ORACLE_01"
+    erpId: "ERP_ORACLE_01",
+    address: "654 Enterprise Ln, Seattle, WA"
   }
 ];
+
 
 // Orders dummy data
 let orders = [
@@ -64,7 +70,9 @@ let orders = [
     status: "approved",
     total: 2850.75,
     erpId: "ERP_SAP_01",
-    contactId: "CONT_001" // Adicionando contactId para associar a um contato
+    contactId: "CONT_001", // Adicionando contactId para associar a um contato
+    CSREmail: "jhon.scot@gmail.com",
+    CSRName: "Jhon Scot"
   },
   {
     identifier: "ORD_002",
@@ -73,7 +81,9 @@ let orders = [
     status: "pending",
     total: 15750.00,
     erpId: "ERP_ORACLE_01",
-    contactId: "CONT_002"
+    contactId: "CONT_002",
+    CSREmail: "robert.vardy@gmail.com",
+    CSRName: "Robert Vardy"
   },
   {
     identifier: "ORD_003",
@@ -82,7 +92,9 @@ let orders = [
     status: "shipped",
     total: 1200.50,
     erpId: "ERP_SAP_01",
-    contactId: "CONT_003"
+    contactId: "CONT_003",
+    CSREmail: "Sarah@gmail.com",
+    CSRName: "Sarah Costa"
   },
   {
     identifier: "ORD_004",
@@ -91,7 +103,9 @@ let orders = [
     status: "delivered",
     total: 3400.25,
     erpId: "ERP_DYNAMICS_01",
-    contactId: "CONT_004"
+    contactId: "CONT_004",
+    CSREmail: "robert.vardy@gmail.com",
+    CSRName: "Robert Vardy"
   },
   {
     identifier: "ORD_005",
@@ -100,7 +114,9 @@ let orders = [
     status: "approved",
     total: 8900.00,
     erpId: "ERP_ORACLE_01",
-    contactId: "CONT_005"
+    contactId: "CONT_005",
+    CSREmail: "robert.vardy@gmail.com",
+    CSRName: "Robert Vardy"
   }
 ];
 
@@ -120,28 +136,38 @@ let orderItems = [
     name: "Wireless Mouse",
     quantity: 50,
     unitPrice: 25.99,
-    status: "approved",
+    status: "pending",
     orderId: "ORD_001",
+    approvers: ["manager@techcorp.com", "admin@techcorp.com"],
+    imageUrl: "https://cdn.example.com/proofs/wireless_mouse_proof.jpg",
     specifications: [
       { attribute: "Color", value: "Black" },
       { attribute: "Brand", value: "Logitech" },
       { attribute: "Connectivity", value: "Bluetooth" }
     ],
-    erpId: "ERP_SAP_01"
+    erpId: "ERP_SAP_01",
+    size: "Standard",
+    colors: ["Black", "Gray"],
+    paperStock: "Matte Coated"
   },
   {
     identifier: "OI_002",
     name: "Mechanical Keyboard",
     quantity: 25,
     unitPrice: 89.99,
-    status: "approved",
+    status: "pending",
     orderId: "ORD_001",
+    approvers: ["manager@techcorp.com"],
+    imageUrl: "https://cdn.example.com/proofs/keyboard_proof.jpg",
     specifications: [
       { attribute: "Switch Type", value: "Cherry MX Blue" },
       { attribute: "Backlight", value: "RGB" },
       { attribute: "Layout", value: "Full Size" }
     ],
-    erpId: "ERP_SAP_01"
+    erpId: "ERP_SAP_01",
+    size: "18 x 6 inches",
+    colors: ["Black", "White"],
+    paperStock: "Glossy Coated"
   },
   {
     identifier: "OI_003",
@@ -150,12 +176,17 @@ let orderItems = [
     unitPrice: 299.99,
     status: "pending",
     orderId: "ORD_002",
+    approvers: ["director@innovate.com", "procurement.head@innovate.com"],
+    imageUrl: "https://cdn.example.com/proofs/monitor_proof.jpg",
     specifications: [
       { attribute: "Resolution", value: "4K UHD" },
       { attribute: "Panel Type", value: "IPS" },
       { attribute: "Refresh Rate", value: "60Hz" }
     ],
-    erpId: "ERP_ORACLE_01"
+    erpId: "ERP_ORACLE_01",
+    size: "27 inch",
+    colors: ["Black"],
+    paperStock: "Matte"
   },
   {
     identifier: "OI_004",
@@ -164,12 +195,17 @@ let orderItems = [
     unitPrice: 45.50,
     status: "shipped",
     orderId: "ORD_003",
+    approvers: ["manager@techcorp.com"],
+    imageUrl: "https://cdn.example.com/proofs/laptop_stand_proof.jpg",
     specifications: [
       { attribute: "Material", value: "Aluminum" },
       { attribute: "Adjustable", value: "Yes" },
       { attribute: "Compatibility", value: "Universal" }
     ],
-    erpId: "ERP_SAP_01"
+    erpId: "ERP_SAP_01",
+    size: "Adjustable",
+    colors: ["Silver"],
+    paperStock: "Glossy"
   },
   {
     identifier: "OI_005",
@@ -178,23 +214,30 @@ let orderItems = [
     unitPrice: 189.99,
     status: "delivered",
     orderId: "ORD_004",
+    approvers: ["supervisor@globaltech.com"],
+    imageUrl: "https://cdn.example.com/proofs/ssd_proof.jpg",
     specifications: [
       { attribute: "Capacity", value: "1TB" },
       { attribute: "Interface", value: "NVMe" },
       { attribute: "Warranty", value: "5 Years" }
     ],
-    erpId: "ERP_DYNAMICS_01"
+    erpId: "ERP_DYNAMICS_01",
+    size: "2.5 inch",
+    colors: ["Black"],
+    paperStock: "Matte"
   }
 ];
 
+
 // Proofs dummy data
+/*
 let proofs = [
   {
     identifier: "PROOF_001",
     orderItemId: "OI_001",
     erpId: "ERP_SAP_01",
     imageUrl: "https://cdn.example.com/proofs/wireless_mouse_proof.jpg",
-    status: "approved",
+    status: "pending",
     approvers: ["manager@techcorp.com", "admin@techcorp.com"]
   },
   {
@@ -211,14 +254,14 @@ let proofs = [
     erpId: "ERP_ORACLE_01",
     imageUrl: "https://cdn.example.com/proofs/monitor_proof.jpg",
     status: "rejected",
-    approvers: ["director@innovate.com", "procurement.head@innovate.com"]
+    ?approvers: ["director@innovate.com", "procurement.head@innovate.com"]
   },
   {
     identifier: "PROOF_004",
     orderItemId: "OI_004",
     erpId: "ERP_SAP_01",
     imageUrl: "https://cdn.example.com/proofs/laptop_stand_proof.jpg",
-    status: "approved",
+    status: "pending",
     approvers: ["manager@techcorp.com"]
   },
   {
@@ -226,10 +269,10 @@ let proofs = [
     orderItemId: "OI_005",
     erpId: "ERP_DYNAMICS_01",
     imageUrl: "https://cdn.example.com/proofs/ssd_proof.jpg",
-    status: "approved",
+    status: "pending",
     approvers: ["supervisor@globaltech.com"]
   }
-];
+];*/
 
 // Shipments dummy data
 let shipments = [
@@ -423,6 +466,7 @@ app.get('/orders/:orderId/items', (req, res) => {
 });
 
 // Get proofs by order item
+/*
 app.get('/order-items/:orderItemId/proofs', (req, res) => {
   try {
     const { orderItemId } = req.params;
@@ -446,7 +490,7 @@ app.get('/order-items/:orderItemId/proofs', (req, res) => {
       message: "Internal server error"
     });
   }
-});
+});*/
 
 // Get shipments
 app.get('/orders/:orderId/shipments', (req, res) => {
@@ -614,6 +658,64 @@ app.put('/proofs/:proofId/status', (req, res) => {
   }
 });
 
+// PUT: Update orderItem status
+app.put('/orderItems/:orderItemId/status', (req, res) => {
+  try {
+    const { orderItemId } = req.params;
+    const { erpId } = req.query;
+    const { status } = req.body;
+
+    if (!erpId) {
+      return res.status(400).json({
+        success: false,
+        message: "erpId parameter is required"
+      });
+    }
+
+    if (!status) {
+      return res.status(400).json({
+        success: false,
+        message: "status is required in request body"
+      });
+    }
+
+    const validStatuses = ['pending', 'processing', 'shipped', 'delivered', 'canceled'];
+    if (!validStatuses.includes(status)) {
+      return res.status(400).json({
+        success: false,
+        message: `Invalid status. Valid options: ${validStatuses.join(', ')}`
+      });
+    }
+
+    const orderItemIndex = orderItems.findIndex(orderItem => 
+      orderItem.identifier === orderItemId && orderItem.erpId === erpId
+    );
+
+    if (orderItemIndex === -1) {
+      return res.status(404).json({
+        success: false,
+        message: "OrderItem not found"
+      });
+    }
+
+    orderItems[orderItemIndex].status = status;
+
+    res.json({
+      success: true,
+      message: `OrderItem ${orderItemId} status updated to ${status}`,
+      timestamp: new Date().toISOString(),
+      orderItem: orderItems[orderItemIndex]
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      timestamp: new Date().toISOString()
+    });
+  }
+});
+
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({
@@ -651,7 +753,7 @@ app.listen(PORT, () => {
   console.log(`   - ${contacts.length} contacts`);
   console.log(`   - ${orders.length} orders`);
   console.log(`   - ${orderItems.length} order items`);
-  console.log(`   - ${proofs.length} proofs`);
+  /*console.log(`   - ${proofs.length} proofs`);*/
   console.log(`   - ${shipments.length} shipments`);
   console.log(`   - ${shipmentItems.length} shipment items`);
   console.log(`🌐 API Documentation: http://localhost:${PORT}/health`);
