@@ -145,6 +145,15 @@ let orders = [
   }
 ];
 
+// Approvers dummy data
+let approvers = [
+  { email: "manager@techcorp.com", erpId: "ERP_SAP_01", role: "Manager" },
+  { email: "director@innovate.com", erpId: "ERP_ORACLE_01", role: "Director" },
+  { email: "supervisor@globaltech.com", erpId: "ERP_DYNAMICS_01", role: "Supervisor" },
+  { email: "admin@techcorp.com", erpId: "ERP_SAP_01", role: "Administrator" },
+  { email: "procurement.head@innovate.com", erpId: "ERP_ORACLE_01", role: "Procurement Head" }
+];
+
 // Order Items dummy data
 let orderItems = [
   {
@@ -711,14 +720,14 @@ app.get('/debug/all-data', (req, res) => {
     orders,
     approvers,
     orderItems,
-    proofs,
+    /*proofs,*/
     shipments,
     shipmentItems,
     stats: {
       totalContacts: contacts.length,
       totalOrders: orders.length,
       totalOrderItems: orderItems.length,
-      totalProofs: proofs.length,
+      /*totalProofs: proofs.length,*/
       totalShipments: shipments.length,
       totalShipmentItems: shipmentItems.length
     }
