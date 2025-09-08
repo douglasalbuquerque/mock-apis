@@ -38,6 +38,8 @@ app.use(basicAuth(basicAuthConfig));
 // ======= DUMMY DATA (EXPANDED - MULTIPLE ASSOCIATIONS) =======
 
 // Contacts dummy data - Updated to support multiple associations for same email
+
+// ======= CONTACTS DUMMY DATA =======
 let contacts = [
   {
     name: "John Doe",
@@ -119,17 +121,118 @@ let contacts = [
     contactId: "CONT_006",
     erpId: "ERP_NETSUITE_01",
     address: "987 Innovation Dr, Denver, CO"
+  },
+  {
+    name: "David Martinez",
+    email: "david.martinez@enterprisetech.com",
+    jobTitle: "Supply Chain Manager",
+    phone: "+1-555-707-8007",
+    contactId: "CONT_009",
+    erpId: "ERP_SAP_03",
+    address: "159 Corporate Way, Phoenix, AZ"
+  },
+  {
+    name: "Lisa Anderson",
+    email: "lisa.anderson@globaltech.com",
+    jobTitle: "Vendor Relations Specialist",
+    phone: "+1-555-808-9008",
+    contactId: "CONT_010",
+    erpId: "ERP_DYNAMICS_01",
+    address: "753 Technology Blvd, Portland, OR"
+  },
+  {
+    name: "Lisa Anderson",
+    email: "lisa.anderson@globaltech.com", // Same email, different contact/ERP
+    jobTitle: "Vendor Relations - Asia Pacific",
+    phone: "+1-555-808-9008",
+    contactId: "CONT_011",
+    erpId: "ERP_DYNAMICS_03",
+    address: "753 Technology Blvd, Portland, OR"
+  },
+  {
+    name: "Christopher Lee",
+    email: "chris.lee@innovate.com",
+    jobTitle: "Purchasing Director",
+    phone: "+1-555-909-1009",
+    contactId: "CONT_012",
+    erpId: "ERP_ORACLE_01",
+    address: "246 Business Center Dr, Miami, FL"
+  },
+  {
+    name: "Amanda Taylor",
+    email: "amanda.taylor@techcorp.com",
+    jobTitle: "Strategic Sourcing Manager",
+    phone: "+1-555-111-2010",
+    contactId: "CONT_013",
+    erpId: "ERP_SAP_01",
+    address: "369 Industry Ave, Dallas, TX"
+  },
+  {
+    name: "Kevin White",
+    email: "kevin.white@enterprisetech.com",
+    jobTitle: "Operations Manager",
+    phone: "+1-555-222-3011",
+    contactId: "CONT_014",
+    erpId: "ERP_SAP_03",
+    address: "852 Commerce St, Atlanta, GA"
+  },
+  {
+    name: "Rachel Green",
+    email: "rachel.green@startuphub.com",
+    jobTitle: "Procurement Specialist",
+    phone: "+1-555-333-4012",
+    contactId: "CONT_015",
+    erpId: "ERP_NETSUITE_01",
+    address: "741 Startup Lane, Boulder, CO"
+  },
+  {
+    name: "Thomas Clark",
+    email: "thomas.clark@futuretech.com",
+    jobTitle: "Category Director",
+    phone: "+1-555-444-5013",
+    contactId: "CONT_016",
+    erpId: "ERP_WORKDAY_01",
+    address: "963 Future Blvd, San Diego, CA"
+  },
+  {
+    name: "Jennifer Lewis",
+    email: "jennifer.lewis@globaltech.com",
+    jobTitle: "Contract Manager",
+    phone: "+1-555-555-6014",
+    contactId: "CONT_017",
+    erpId: "ERP_DYNAMICS_02",
+    address: "147 Contract Way, Nashville, TN"
+  },
+  {
+    name: "Mark Thompson",
+    email: "mark.thompson@techcorp.com",
+    jobTitle: "Vendor Manager",
+    phone: "+1-555-666-7015",
+    contactId: "CONT_018",
+    erpId: "ERP_SAP_01",
+    address: "258 Vendor St, Las Vegas, NV"
+  },
+  {
+    name: "Nicole Rodriguez",
+    email: "nicole.rodriguez@innovate.com",
+    jobTitle: "Senior Procurement Analyst",
+    phone: "+1-555-777-8016",
+    contactId: "CONT_019",
+    erpId: "ERP_ORACLE_03",
+    address: "369 Analysis Ave, Salt Lake City, UT"
   }
 ];
 
 // Orders dummy data - Updated with more varied associations
+// ======= ORDERS DUMMY DATA =======
+
 let orders = [
   {
     identifier: "ORD_001",
     name: "Office Supplies Q1",
     date: "2024-01-15T10:30:00Z",
     status: "approved",
-    total: 2850.75,
+    total: 2849.75,
     erpId: "ERP_SAP_01",
     contactId: "CONT_001",
     CSREmail: "jhon.scot@gmail.com",
@@ -141,7 +244,7 @@ let orders = [
     name: "IT Equipment Upgrade",
     date: "2024-01-18T14:20:00Z",
     status: "pending",
-    total: 15750.00,
+    total: 42049.85,
     erpId: "ERP_ORACLE_01",
     contactId: "CONT_002",
     CSREmail: "robert.vardy@gmail.com",
@@ -153,10 +256,10 @@ let orders = [
     name: "Marketing Materials",
     date: "2024-01-20T09:15:00Z",
     status: "shipped",
-    total: 1200.50,
+    total: 1365.00,
     erpId: "ERP_SAP_01",
     contactId: "CONT_003",
-    CSREmail: "Sarah@gmail.com",
+    CSREmail: "sarah@gmail.com",
     CSRName: "Sarah Costa",
     companyName: "TechCorp"
   },
@@ -165,7 +268,7 @@ let orders = [
     name: "Facility Maintenance",
     date: "2024-01-22T16:45:00Z",
     status: "delivered",
-    total: 3400.25,
+    total: 4649.90,
     erpId: "ERP_DYNAMICS_01",
     contactId: "CONT_004",
     CSREmail: "robert.vardy@gmail.com",
@@ -189,7 +292,7 @@ let orders = [
     name: "Startup Launch Kits",
     date: "2024-01-28T13:00:00Z",
     status: "pending",
-    total: 2500.00,
+    total: 4000.00,
     erpId: "ERP_NETSUITE_01",
     contactId: "CONT_006",
     CSREmail: "emily.davis@startuphub.com",
@@ -203,7 +306,7 @@ let orders = [
     status: "pending",
     total: 5500.00,
     erpId: "ERP_ORACLE_02",
-    contactId: "CONT_007", // John Doe in different ERP
+    contactId: "CONT_007",
     CSREmail: "oracle.csr@gmail.com",
     CSRName: "Oracle CSR",
     companyName: "TechCorp Oracle Division"
@@ -215,7 +318,7 @@ let orders = [
     status: "approved",
     total: 3200.00,
     erpId: "ERP_SAP_02",
-    contactId: "CONT_008", // Jane Smith in different contact/ERP
+    contactId: "CONT_008",
     CSREmail: "sap2.csr@gmail.com",
     CSRName: "SAP2 CSR",
     companyName: "Innovate SAP Division 2"
@@ -227,14 +330,148 @@ let orders = [
     status: "shipped",
     total: 7800.00,
     erpId: "ERP_DYNAMICS_02",
-    contactId: "CONT_004", // Sarah Wilson in different ERP
+    contactId: "CONT_004",
     CSREmail: "eu.csr@gmail.com",
     CSRName: "EU CSR",
     companyName: "GlobalTech EU"
+  },
+  {
+    identifier: "ORD_010",
+    name: "Enterprise Hardware Bundle",
+    date: "2024-02-05T09:30:00Z",
+    status: "pending",
+    total: 18049.42,
+    erpId: "ERP_SAP_03",
+    contactId: "CONT_009",
+    CSREmail: "enterprise.csr@gmail.com",
+    CSRName: "Enterprise CSR",
+    companyName: "EnterpriseTech"
+  },
+  {
+    identifier: "ORD_011",
+    name: "Vendor Management Tools",
+    date: "2024-02-07T11:45:00Z",
+    status: "approved",
+    total: 4200.00,
+    erpId: "ERP_DYNAMICS_01",
+    contactId: "CONT_010",
+    CSREmail: "vendor.csr@gmail.com",
+    CSRName: "Vendor CSR",
+    companyName: "GlobalTech"
+  },
+  {
+    identifier: "ORD_012",
+    name: "Asia Pacific Equipment",
+    date: "2024-02-08T14:20:00Z",
+    status: "pending",
+    total: 11960.00,
+    erpId: "ERP_DYNAMICS_03",
+    contactId: "CONT_011",
+    CSREmail: "apac.csr@gmail.com",
+    CSRName: "APAC CSR",
+    companyName: "GlobalTech APAC"
+  },
+  {
+    identifier: "ORD_013",
+    name: "Strategic Sourcing Platform",
+    date: "2024-02-10T16:00:00Z",
+    status: "approved",
+    total: 15200.00,
+    erpId: "ERP_ORACLE_01",
+    contactId: "CONT_012",
+    CSREmail: "strategic.csr@gmail.com",
+    CSRName: "Strategic CSR",
+    companyName: "Innovate Ltd"
+  },
+  {
+    identifier: "ORD_014",
+    name: "Q1 Office Renovation",
+    date: "2024-02-12T08:15:00Z",
+    status: "shipped",
+    total: 8324.70,
+    erpId: "ERP_SAP_01",
+    contactId: "CONT_013",
+    CSREmail: "renovation.csr@gmail.com",
+    CSRName: "Renovation CSR",
+    companyName: "TechCorp"
+  },
+  {
+    identifier: "ORD_015",
+    name: "Operations Optimization Kit",
+    date: "2024-02-14T13:30:00Z",
+    status: "pending",
+    total: 10500.00,
+    erpId: "ERP_SAP_03",
+    contactId: "CONT_014",
+    CSREmail: "operations.csr@gmail.com",
+    CSRName: "Operations CSR",
+    companyName: "EnterpriseTech"
+  },
+  {
+    identifier: "ORD_016",
+    name: "Startup Growth Package",
+    date: "2024-02-15T10:45:00Z",
+    status: "approved",
+    total: 4865.00,
+    erpId: "ERP_NETSUITE_01",
+    contactId: "CONT_015",
+    CSREmail: "growth.csr@gmail.com",
+    CSRName: "Growth CSR",
+    companyName: "StartupHub"
+  },
+  {
+    identifier: "ORD_017",
+    name: "Future Tech Solutions",
+    date: "2024-02-18T15:20:00Z",
+    status: "pending",
+    total: 11200.00,
+    erpId: "ERP_WORKDAY_01",
+    contactId: "CONT_016",
+    CSREmail: "future.csr@gmail.com",
+    CSRName: "Future CSR",
+    companyName: "FutureTech"
+  },
+  {
+    identifier: "ORD_018",
+    name: "Contract Management Suite",
+    date: "2024-02-20T12:00:00Z",
+    status: "shipped",
+    total: 7300.00,
+    erpId: "ERP_DYNAMICS_02",
+    contactId: "CONT_017",
+    CSREmail: "contract.csr@gmail.com",
+    CSRName: "Contract CSR",
+    companyName: "GlobalTech EU"
+  },
+  {
+    identifier: "ORD_019",
+    name: "Vendor Analytics Platform",
+    date: "2024-02-22T14:15:00Z",
+    status: "approved",
+    total: 5800.00,
+    erpId: "ERP_SAP_01",
+    contactId: "CONT_018",
+    CSREmail: "analytics.csr@gmail.com",
+    CSRName: "Analytics CSR",
+    companyName: "TechCorp"
+  },
+  {
+    identifier: "ORD_020",
+    name: "Procurement Analysis Tools",
+    date: "2024-02-25T09:30:00Z",
+    status: "pending",
+    total: 5250.00,
+    erpId: "ERP_ORACLE_03",
+    contactId: "CONT_019",
+    CSREmail: "analysis.csr@gmail.com",
+    CSRName: "Analysis CSR",
+    companyName: "Innovate Analytics Division"
   }
 ];
 
 // Approvers dummy data - Updated with more ERP associations
+// ======= APPROVERS DUMMY DATA =======
+
 let approvers = [
   { email: "manager@techcorp.com", erpId: "ERP_SAP_01", role: "Manager" },
   { email: "director@innovate.com", erpId: "ERP_ORACLE_01", role: "Director" },
@@ -243,11 +480,34 @@ let approvers = [
   { email: "procurement.head@innovate.com", erpId: "ERP_ORACLE_01", role: "Procurement Head" },
   { email: "oracle.manager@techcorp.com", erpId: "ERP_ORACLE_02", role: "Oracle Manager" },
   { email: "sap2.director@innovate.com", erpId: "ERP_SAP_02", role: "SAP2 Director" },
-  { email: "eu.supervisor@globaltech.com", erpId: "ERP_DYNAMICS_02", role: "EU Supervisor" }
+  { email: "eu.supervisor@globaltech.com", erpId: "ERP_DYNAMICS_02", role: "EU Supervisor" },
+  { email: "enterprise.manager@enterprisetech.com", erpId: "ERP_SAP_03", role: "Enterprise Manager" },
+  { email: "apac.director@globaltech.com", erpId: "ERP_DYNAMICS_03", role: "APAC Director" },
+  { email: "strategic.head@innovate.com", erpId: "ERP_ORACLE_01", role: "Strategic Head" },
+  { email: "operations.manager@enterprisetech.com", erpId: "ERP_SAP_03", role: "Operations Manager" },
+  { email: "startup.supervisor@startuphub.com", erpId: "ERP_NETSUITE_01", role: "Startup Supervisor" },
+  { email: "future.director@futuretech.com", erpId: "ERP_WORKDAY_01", role: "Future Director" },
+  { email: "contract.manager@globaltech.com", erpId: "ERP_DYNAMICS_02", role: "Contract Manager" },
+  { email: "analytics.head@techcorp.com", erpId: "ERP_SAP_01", role: "Analytics Head" },
+  { email: "analysis.director@innovate.com", erpId: "ERP_ORACLE_03", role: "Analysis Director" },
+  { email: "finance.controller@techcorp.com", erpId: "ERP_SAP_01", role: "Finance Controller" },
+  { email: "vp.procurement@innovate.com", erpId: "ERP_ORACLE_01", role: "VP Procurement" },
+  { email: "chief.operations@globaltech.com", erpId: "ERP_DYNAMICS_01", role: "Chief Operations" },
+  { email: "supply.chain.lead@enterprisetech.com", erpId: "ERP_SAP_03", role: "Supply Chain Lead" },
+  { email: "vendor.relations.head@globaltech.com", erpId: "ERP_DYNAMICS_01", role: "Vendor Relations Head" },
+  { email: "purchasing.vp@innovate.com", erpId: "ERP_ORACLE_01", role: "Purchasing VP" },
+  { email: "sourcing.director@techcorp.com", erpId: "ERP_SAP_01", role: "Sourcing Director" },
+  { email: "procurement.specialist.lead@startuphub.com", erpId: "ERP_NETSUITE_01", role: "Procurement Specialist Lead" },
+  { email: "category.head@futuretech.com", erpId: "ERP_WORKDAY_01", role: "Category Head" },
+  { email: "contract.supervisor@globaltech.com", erpId: "ERP_DYNAMICS_02", role: "Contract Supervisor" },
+  { email: "vendor.director@techcorp.com", erpId: "ERP_SAP_01", role: "Vendor Director" },
+  { email: "senior.analyst.lead@innovate.com", erpId: "ERP_ORACLE_03", role: "Senior Analyst Lead" }
 ];
 
 // Order Items dummy data - Updated with new order associations
+// ======= ORDER ITEMS DUMMY DATA =======
 let orderItems = [
+  // Existing items
   {
     identifier: "OI_001",
     name: "Wireless Mouse",
@@ -373,11 +633,419 @@ let orderItems = [
     size: "Large",
     color: "Blue",
     paperStock: "Industrial"
+  },
+  // Additional items for ORD_001
+  {
+    identifier: "OI_010",
+    name: "Desk Lamp",
+    quantity: 40,
+    unitPrice: 35.75,
+    status: "pending",
+    orderId: "ORD_001",
+    approvers: ["manager@techcorp.com"],
+    imageUrl: "https://cdn.example.com/proofs/desk_lamp_proof.jpg",
+    erpId: "ERP_SAP_01",
+    size: "Adjustable",
+    color: "White",
+    paperStock: "Plastic"
+  },
+  // Additional items for ORD_002
+  {
+    identifier: "OI_011",
+    name: "Wireless Headset",
+    quantity: 20,
+    unitPrice: 129.99,
+    status: "pending",
+    orderId: "ORD_002",
+    approvers: ["director@innovate.com"],
+    imageUrl: "https://cdn.example.com/proofs/headset_proof.jpg",
+    erpId: "ERP_ORACLE_01",
+    size: "Over-ear",
+    color: "Black",
+    paperStock: "Leather"
+  },
+  {
+    identifier: "OI_012",
+    name: "USB-C Docking Station",
+    quantity: 12,
+    unitPrice: 185.00,
+    status: "pending",
+    orderId: "ORD_002",
+    approvers: ["director@innovate.com", "procurement.head@innovate.com"],
+    imageUrl: "https://cdn.example.com/proofs/docking_station_proof.jpg",
+    erpId: "ERP_ORACLE_01",
+    size: "Desktop",
+    color: "Silver",
+    paperStock: "Aluminum"
+  },
+  // Additional items for ORD_005
+  {
+    identifier: "OI_013",
+    name: "Antivirus Software",
+    quantity: 100,
+    unitPrice: 45.00,
+    status: "approved",
+    orderId: "ORD_005",
+    approvers: ["procurement.head@innovate.com"],
+    imageUrl: "https://cdn.example.com/proofs/antivirus_proof.jpg",
+    erpId: "ERP_ORACLE_01",
+    size: "Digital License",
+    color: "N/A",
+    paperStock: "Digital"
+  },
+  {
+    identifier: "OI_014",
+    name: "Project Management Tool",
+    quantity: 50,
+    unitPrice: 89.00,
+    status: "approved",
+    orderId: "ORD_005",
+    approvers: ["director@innovate.com"],
+    imageUrl: "https://cdn.example.com/proofs/project_mgmt_proof.jpg",
+    erpId: "ERP_ORACLE_01",
+    size: "Cloud License",
+    color: "N/A",
+    paperStock: "Digital"
+  },
+  // Items for ORD_010
+  {
+    identifier: "OI_015",
+    name: "Enterprise Server",
+    quantity: 3,
+    unitPrice: 2500.00,
+    status: "pending",
+    orderId: "ORD_010",
+    approvers: ["enterprise.manager@enterprisetech.com", "operations.manager@enterprisetech.com"],
+    imageUrl: "https://cdn.example.com/proofs/server_proof.jpg",
+    erpId: "ERP_SAP_03",
+    size: "Rack Mount",
+    color: "Black",
+    paperStock: "Metal"
+  },
+  {
+    identifier: "OI_016",
+    name: "Network Switch",
+    quantity: 8,
+    unitPrice: 450.50,
+    status: "pending",
+    orderId: "ORD_010",
+    approvers: ["enterprise.manager@enterprisetech.com"],
+    imageUrl: "https://cdn.example.com/proofs/switch_proof.jpg",
+    erpId: "ERP_SAP_03",
+    size: "24-port",
+    color: "Black",
+    paperStock: "Metal"
+  },
+  {
+    identifier: "OI_017",
+    name: "UPS Battery Backup",
+    quantity: 5,
+    unitPrice: 320.00,
+    status: "pending",
+    orderId: "ORD_010",
+    approvers: ["supply.chain.lead@enterprisetech.com"],
+    imageUrl: "https://cdn.example.com/proofs/ups_proof.jpg",
+    erpId: "ERP_SAP_03",
+    size: "1500VA",
+    color: "Black",
+    paperStock: "Plastic"
+  },
+  // Items for ORD_011
+  {
+    identifier: "OI_018",
+    name: "Vendor Management Software",
+    quantity: 25,
+    unitPrice: 120.00,
+    status: "approved",
+    orderId: "ORD_011",
+    approvers: ["supervisor@globaltech.com"],
+    imageUrl: "https://cdn.example.com/proofs/vendor_mgmt_proof.jpg",
+    erpId: "ERP_DYNAMICS_01",
+    size: "Cloud License",
+    color: "N/A",
+    paperStock: "Digital"
+  },
+  {
+    identifier: "OI_019",
+    name: "Contract Analysis Tool",
+    quantity: 15,
+    unitPrice: 80.00,
+    status: "approved",
+    orderId: "ORD_011",
+    approvers: ["vendor.relations.head@globaltech.com"],
+    imageUrl: "https://cdn.example.com/proofs/contract_analysis_proof.jpg",
+    erpId: "ERP_DYNAMICS_01",
+    size: "Cloud License",
+    color: "N/A",
+    paperStock: "Digital"
+  },
+  // Items for ORD_012
+  {
+    identifier: "OI_020",
+    name: "APAC Specialized Equipment",
+    quantity: 8,
+    unitPrice: 890.00,
+    status: "pending",
+    orderId: "ORD_012",
+    approvers: ["apac.director@globaltech.com"],
+    imageUrl: "https://cdn.example.com/proofs/apac_equipment_proof.jpg",
+    erpId: "ERP_DYNAMICS_03",
+    size: "Industrial",
+    color: "Blue",
+    paperStock: "Metal"
+  },
+  {
+    identifier: "OI_021",
+    name: "Regional Communication System",
+    quantity: 12,
+    unitPrice: 445.00,
+    status: "pending",
+    orderId: "ORD_012",
+    approvers: ["apac.director@globaltech.com"],
+    imageUrl: "https://cdn.example.com/proofs/comm_system_proof.jpg",
+    erpId: "ERP_DYNAMICS_03",
+    size: "Desktop",
+    color: "White",
+    paperStock: "Plastic"
+  },
+  // Items for ORD_013
+  {
+    identifier: "OI_022",
+    name: "Strategic Sourcing Platform License",
+    quantity: 1,
+    unitPrice: 8500.00,
+    status: "approved",
+    orderId: "ORD_013",
+    approvers: ["strategic.head@innovate.com", "purchasing.vp@innovate.com"],
+    imageUrl: "https://cdn.example.com/proofs/sourcing_platform_proof.jpg",
+    erpId: "ERP_ORACLE_01",
+    size: "Enterprise License",
+    color: "N/A",
+    paperStock: "Digital"
+  },
+  {
+    identifier: "OI_023",
+    name: "Training and Implementation",
+    quantity: 1,
+    unitPrice: 6700.00,
+    status: "approved",
+    orderId: "ORD_013",
+    approvers: ["strategic.head@innovate.com"],
+    imageUrl: "https://cdn.example.com/proofs/training_proof.jpg",
+    erpId: "ERP_ORACLE_01",
+    size: "Service Package",
+    color: "N/A",
+    paperStock: "Service"
+  },
+  // Items for ORD_014
+  {
+    identifier: "OI_024",
+    name: "Office Furniture Set",
+    quantity: 20,
+    unitPrice: 285.50,
+    status: "shipped",
+    orderId: "ORD_014",
+    approvers: ["sourcing.director@techcorp.com"],
+    imageUrl: "https://cdn.example.com/proofs/furniture_proof.jpg",
+    erpId: "ERP_SAP_01",
+    size: "Standard Desk Set",
+    color: "Oak Wood",
+    paperStock: "Wood"
+  },
+  {
+    identifier: "OI_025",
+    name: "LED Lighting System",
+    quantity: 15,
+    unitPrice: 120.50,
+    status: "shipped",
+    orderId: "ORD_014",
+    approvers: ["manager@techcorp.com"],
+    imageUrl: "https://cdn.example.com/proofs/lighting_proof.jpg",
+    erpId: "ERP_SAP_01",
+    size: "Panel Light",
+    color: "White",
+    paperStock: "Aluminum"
+  },
+  // Items for ORD_015
+  {
+    identifier: "OI_026",
+    name: "Process Automation Software",
+    quantity: 10,
+    unitPrice: 550.00,
+    status: "pending",
+    orderId: "ORD_015",
+    approvers: ["operations.manager@enterprisetech.com"],
+    imageUrl: "https://cdn.example.com/proofs/automation_proof.jpg",
+    erpId: "ERP_SAP_03",
+    size: "Enterprise License",
+    color: "N/A",
+    paperStock: "Digital"
+  },
+  {
+    identifier: "OI_027",
+    name: "Analytics Dashboard",
+    quantity: 5,
+    unitPrice: 450.00,
+    status: "pending",
+    orderId: "ORD_015",
+    approvers: ["supply.chain.lead@enterprisetech.com"],
+    imageUrl: "https://cdn.example.com/proofs/analytics_proof.jpg",
+    erpId: "ERP_SAP_03",
+    size: "Cloud License",
+    color: "N/A",
+    paperStock: "Digital"
+  },
+  // Items for ORD_016
+  {
+    identifier: "OI_028",
+    name: "Startup Marketing Package",
+    quantity: 1,
+    unitPrice: 2500.00,
+    status: "approved",
+    orderId: "ORD_016",
+    approvers: ["startup.supervisor@startuphub.com"],
+    imageUrl: "https://cdn.example.com/proofs/marketing_package_proof.jpg",
+    erpId: "ERP_NETSUITE_01",
+    size: "Service Package",
+    color: "Mixed",
+    paperStock: "Mixed"
+  },
+  {
+    identifier: "OI_029",
+    name: "Business Development Tools",
+    quantity: 15,
+    unitPrice: 157.67,
+    status: "approved",
+    orderId: "ORD_016",
+    approvers: ["procurement.specialist.lead@startuphub.com"],
+    imageUrl: "https://cdn.example.com/proofs/biz_dev_tools_proof.jpg",
+    erpId: "ERP_NETSUITE_01",
+    size: "Software Suite",
+    color: "N/A",
+    paperStock: "Digital"
+  },
+  // Items for ORD_017
+  {
+    identifier: "OI_030",
+    name: "Future Tech Hardware",
+    quantity: 8,
+    unitPrice: 950.00,
+    status: "pending",
+    orderId: "ORD_017",
+    approvers: ["future.director@futuretech.com"],
+    imageUrl: "https://cdn.example.com/proofs/future_tech_proof.jpg",
+    erpId: "ERP_WORKDAY_01",
+    size: "Advanced",
+    color: "Silver",
+    paperStock: "Carbon Fiber"
+  },
+  {
+    identifier: "OI_031",
+    name: "AI Development Platform",
+    quantity: 3,
+    unitPrice: 1600.00,
+    status: "pending",
+    orderId: "ORD_017",
+    approvers: ["category.head@futuretech.com"],
+    imageUrl: "https://cdn.example.com/proofs/ai_platform_proof.jpg",
+    erpId: "ERP_WORKDAY_01",
+    size: "Enterprise License",
+    color: "N/A",
+    paperStock: "Digital"
+  },
+  // Items for ORD_018
+  {
+    identifier: "OI_032",
+    name: "Contract Management Suite",
+    quantity: 1,
+    unitPrice: 4500.00,
+    status: "shipped",
+    orderId: "ORD_018",
+    approvers: ["contract.manager@globaltech.com"],
+    imageUrl: "https://cdn.example.com/proofs/contract_suite_proof.jpg",
+    erpId: "ERP_DYNAMICS_02",
+    size: "Enterprise License",
+    color: "N/A",
+    paperStock: "Digital"
+  },
+  {
+    identifier: "OI_033",
+    name: "Legal Compliance Module",
+    quantity: 1,
+    unitPrice: 2800.00,
+    status: "shipped",
+    orderId: "ORD_018",
+    approvers: ["contract.supervisor@globaltech.com"],
+    imageUrl: "https://cdn.example.com/proofs/compliance_proof.jpg",
+    erpId: "ERP_DYNAMICS_02",
+    size: "Software Module",
+    color: "N/A",
+    paperStock: "Digital"
+  },
+  // Items for ORD_019
+  {
+    identifier: "OI_034",
+    name: "Vendor Analytics Software",
+    quantity: 12,
+    unitPrice: 315.00,
+    status: "approved",
+    orderId: "ORD_019",
+    approvers: ["analytics.head@techcorp.com"],
+    imageUrl: "https://cdn.example.com/proofs/vendor_analytics_proof.jpg",
+    erpId: "ERP_SAP_01",
+    size: "Software License",
+    color: "N/A",
+    paperStock: "Digital"
+  },
+  {
+    identifier: "OI_035",
+    name: "Performance Dashboard",
+    quantity: 8,
+    unitPrice: 190.00,
+    status: "approved",
+    orderId: "ORD_019",
+    approvers: ["vendor.director@techcorp.com"],
+    imageUrl: "https://cdn.example.com/proofs/performance_dashboard_proof.jpg",
+    erpId: "ERP_SAP_01",
+    size: "Cloud License",
+    color: "N/A",
+    paperStock: "Digital"
+  },
+  // Items for ORD_020
+  {
+    identifier: "OI_036",
+    name: "Procurement Analysis Platform",
+    quantity: 1,
+    unitPrice: 3200.00,
+    status: "pending",
+    orderId: "ORD_020",
+    approvers: ["analysis.director@innovate.com"],
+    imageUrl: "https://cdn.example.com/proofs/procurement_analysis_proof.jpg",
+    erpId: "ERP_ORACLE_03",
+    size: "Enterprise Platform",
+    color: "N/A",
+    paperStock: "Digital"
+  },
+  {
+    identifier: "OI_037",
+    name: "Advanced Reporting Module",
+    quantity: 1,
+    unitPrice: 2050.00,
+    status: "pending",
+    orderId: "ORD_020",
+    approvers: ["senior.analyst.lead@innovate.com"],
+    imageUrl: "https://cdn.example.com/proofs/reporting_module_proof.jpg",
+    erpId: "ERP_ORACLE_03",
+    size: "Software Module",
+    color: "N/A",
+    paperStock: "Digital"
   }
 ];
 
 // Shipments dummy data - Updated with new orders
+// ======= SHIPMENTS DUMMY DATA =======
 let shipments = [
+  // Existing shipments
   {
     identifier: "SHIP_001",
     trackingNumber: "1Z999AA1234567890",
@@ -455,8 +1123,125 @@ let shipments = [
     weight: 18.5,
     orderId: "ORD_009",
     erpId: "ERP_DYNAMICS_02"
-  }
-];
+  },
+  // Additional shipments
+  {
+    identifier: "SHIP_007",
+    trackingNumber: "1Z999BB9876543210",
+    carrier: "UPS",
+    shippedDate: "2024-02-06T13:45:00Z",
+    estimatedDelivery: "2024-02-11T17:00:00Z",
+    status: "in_transit",
+    deliveryAddress: "456 Market Ave, San Francisco, CA",
+    service: "UPS 2nd Day Air",
+    weight: 25.3,
+    orderId: "ORD_002",
+    erpId: "ERP_ORACLE_01"
+  },
+  {
+    identifier: "SHIP_008",
+    trackingNumber: "SAP2SHIP456789",
+    carrier: "FedEx",
+    shippedDate: "2024-02-02T08:20:00Z",
+    estimatedDelivery: "2024-02-05T12:00:00Z",
+    status: "delivered",
+    deliveryAddress: "456 Market Ave, San Francisco, CA",
+    service: "FedEx Express",
+    weight: 12.5,
+    orderId: "ORD_008",
+    erpId: "ERP_SAP_02"
+  },
+  {
+    identifier: "SHIP_009",
+    trackingNumber: "ENT123789456",
+    carrier: "DHL",
+    shippedDate: "2024-02-08T10:30:00Z",
+    estimatedDelivery: "2024-02-13T15:30:00Z",
+    status: "preparing",
+    deliveryAddress: "159 Corporate Way, Phoenix, AZ",
+    service: "DHL Express Worldwide",
+    weight: 45.8,
+    orderId: "ORD_010",
+    erpId: "ERP_SAP_03"
+  },
+  {
+    identifier: "SHIP_010",
+    trackingNumber: "VENDOR456123",
+    carrier: "UPS",
+    shippedDate: "2024-02-09T14:15:00Z",
+    estimatedDelivery: "2024-02-14T16:00:00Z",
+    status: "shipped",
+    deliveryAddress: "753 Technology Blvd, Portland, OR",
+    service: "UPS Ground",
+    weight: 8.2,
+    orderId: "ORD_011",
+    erpId: "ERP_DYNAMICS_01"
+  },
+  {
+    identifier: "SHIP_011",
+    trackingNumber: "APAC987654321",
+    carrier: "DPD",
+    shippedDate: "2024-02-10T11:45:00Z",
+    estimatedDelivery: "2024-02-15T13:30:00Z",
+    status: "pending",
+    deliveryAddress: "753 Technology Blvd, Portland, OR",
+    service: "DPD Express",
+    weight: 22.7,
+    orderId: "ORD_012",
+    erpId: "ERP_DYNAMICS_03"
+  },
+  {
+    identifier: "SHIP_012",
+    trackingNumber: "STRATEGIC789123",
+    carrier: "FedEx",
+    shippedDate: "2024-02-12T09:00:00Z",
+    estimatedDelivery: "2024-02-16T14:00:00Z",
+    status: "in_transit",
+    deliveryAddress: "246 Business Center Dr, Miami, FL",
+    service: "FedEx Priority Overnight",
+    weight: 3.5,
+    orderId: "ORD_013",
+    erpId: "ERP_ORACLE_01"
+  },
+  {
+    identifier: "SHIP_013",
+    trackingNumber: "RENOVATION456789",
+    carrier: "UPS",
+    shippedDate: "2024-02-14T15:20:00Z",
+    estimatedDelivery: "2024-02-19T17:00:00Z",
+    status: "shipped",
+    deliveryAddress: "369 Industry Ave, Dallas, TX",
+    service: "UPS 3 Day Select",
+    weight: 35.4,
+    orderId: "ORD_014",
+    erpId: "ERP_SAP_01"
+  },
+  {
+    identifier: "SHIP_014",
+    trackingNumber: "OPS123456789",
+    carrier: "DHL",
+    shippedDate: "2024-02-16T12:30:00Z",
+    estimatedDelivery: "2024-02-21T16:00:00Z",
+    status: "preparing",
+    deliveryAddress: "852 Commerce St, Atlanta, GA",
+    service: "DHL Express",
+    weight: 18.9,
+    orderId: "ORD_015",
+    erpId: "ERP_SAP_03"
+  },
+  {
+    identifier: "SHIP_015",
+    trackingNumber: "STARTUP789456",
+    carrier: "USPS",
+    shippedDate: "2024-02-17T10:45:00Z",
+    estimatedDelivery: "2024-02-22T14:30:00Z",
+    status: "shipped",
+    deliveryAddress: "741 Startup Lane, Boulder, CO",
+    service: "Priority Mail Express",
+    weight: 12.3,
+    orderId: "ORD_016",
+    erpId: "ERP_NETSUITE_01"
+  }];
 
 // Shipment Items dummy data - Updated with new shipments
 let shipmentItems = [
