@@ -292,7 +292,7 @@ let orders = [
     name: "Startup Launch Kits",
     date: "2024-01-28T13:00:00Z",
     status: "pending",
-    total: 4000.00,
+    total: 1500.00,
     erpId: "ERP_NETSUITE_01",
     contactId: "CONT_006",
     CSREmail: "emily.davis@startuphub.com",
