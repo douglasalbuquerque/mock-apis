@@ -213,8 +213,8 @@ let contacts = [
     address: "258 Vendor St, Las Vegas, NV"
   },
   {
-    name: "Nicole Rodriguez",
-    email: "nicole.rodriguez@innovate.com",
+    name: "Sarah Collins",
+    email: "sarah.collins@vomelademo.com",
     jobTitle: "Senior Procurement Analyst",
     phone: "+1-555-777-8016",
     contactId: "CONT_019",
@@ -425,8 +425,8 @@ let orders = [
     date: "2024-02-18T15:20:00Z",
     status: "pending",
     total: 11200.00,
-    erpId: "ERP_WORKDAY_01",
-    contactId: "CONT_016",
+    erpId: "ERP_ORACLE_03",
+    contactId: "CONT_019",
     CSREmail: "future.csr@gmail.com",
     CSRName: "Future CSR",
     companyName: "FutureTech"
@@ -437,8 +437,8 @@ let orders = [
     date: "2024-02-20T12:00:00Z",
     status: "shipped",
     total: 7300.00,
-    erpId: "ERP_DYNAMICS_02",
-    contactId: "CONT_017",
+    erpId: "ERP_ORACLE_03",
+    contactId: "CONT_019",
     CSREmail: "contract.csr@gmail.com",
     CSRName: "Contract CSR",
     companyName: "GlobalTech EU"
@@ -449,8 +449,8 @@ let orders = [
     date: "2024-02-22T14:15:00Z",
     status: "approved",
     total: 5800.00,
-    erpId: "ERP_SAP_01",
-    contactId: "CONT_018",
+    erpId: "ERP_ORACLE_03",
+    contactId: "CONT_019",
     CSREmail: "analytics.csr@gmail.com",
     CSRName: "Analytics CSR",
     companyName: "TechCorp"
@@ -997,21 +997,21 @@ let orderItems = [
     color: "N/A",
     paperStock: "Digital"
   },
+  // Items for ORD_020
   {
     identifier: "OI_035",
     name: "Performance Dashboard",
     quantity: 8,
     unitPrice: 190.00,
     status: "approved",
-    orderId: "ORD_019",
+    orderId: "ORD_020",
     approvers: ["vendor.director@techcorp.com"],
     imageUrl: "https://cdn.example.com/proofs/performance_dashboard_proof.jpg",
-    erpId: "ERP_SAP_01",
+    erpId: "ERP_ORACLE_03",
     size: "Cloud License",
     color: "N/A",
     paperStock: "Digital"
   },
-  // Items for ORD_020
   {
     identifier: "OI_036",
     name: "Procurement Analysis Platform",
