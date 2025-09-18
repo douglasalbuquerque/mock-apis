@@ -1195,7 +1195,7 @@ let orderItems = [
     status: "pending",
     orderId: "ORD_006",
     approvers: ["emily.davis@startuphub.com"],
-    imageUrl: "https://cdn.example.com/proofs/tshirt_proof.jpg",
+    imageUrl: "https://cdn.pixabay.com/photo/2014/11/22/11/59/magnifying-glass-541625_1280.jpg",
     erpId: "ERP_NETSUITE_01",
     size: "M",
     color: "Blue",
