@@ -2419,7 +2419,7 @@ app.post('/orderItems', (req, res) => {
 });
 
 // Get order items - Legacy endpoint (GET)
-app.get('/orders/:orderId/items', (req, res) => {
+app.get('/orderItems', (req, res) => {
  try {
     const { orderId } = req.params;
     const { erpId } = req.query;
