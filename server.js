@@ -2,9 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const basicAuth = require('express-basic-auth');
 const { v4: uuidv4 } = require('uuid');
+const axios = require('axios');
+const https = require("https");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
 
 // Basic Auth Configuration
 const basicAuthConfig = {
@@ -2250,53 +2253,42 @@ app.post('/orders', (req, res) => {
 // Get orders (legacy GET endpoint for backward compatibility)
 app.get('/orders', (req, res) => {
   try {
-    const { contactIds, erpIds } = req.query;
-    
-    if (!contactIds || !erpIds) {
-      return res.status(400).json({
-        success: false,
-        message: "contactIds and erpIds parameters are required. Consider using POST /orders with contactErpPairs for better control."
-      });
-    }
-
-    const contactIdArray = Array.isArray(contactIds) ? contactIds : [contactIds];
-    const erpIdArray = Array.isArray(erpIds) ? erpIds : [erpIds];
-    
-    // Create all possible combinations (legacy behavior)
-    const contactErpPairs = [];
-    contactIdArray.forEach(contactId => {
-      erpIdArray.forEach(erpId => {
-        contactErpPairs.push({ contactId, erpId });
-      });
-    });
-
-    // Filter orders based on ERP IDs (legacy behavior - less precise)
-    const filteredOrders = orders.filter(order => erpIdArray.includes(order.erpId));
-
-    const ordersWithDetails = filteredOrders.map(order => {
-      const orderContact = contacts.find(contact => 
-        contact.contactId === order.contactId && contact.erpId === order.erpId
-      );
-      const orderApprovers = approvers.filter(approver => approver.erpId === order.erpId);
-
-      return {
-        ...order,
-        contact: orderContact || null,
-        approvers: orderApprovers
-      };
-    });
-
-    res.json({
-      orders: ordersWithDetails,
-      warning: "This endpoint is deprecated. Use POST /orders with contactErpPairs for precise filtering."
-    });
-
-  } catch (error) {
-    res.status(500).json({
+  const { contactIds, erpIds } = req.query;
+  
+  if (!contactIds || !erpIds) {
+    return res.status(400).json({
       success: false,
-      message: "Internal server error"
+      message: "contactIds and erpIds parameters are required. Consider using POST /orders with contactErpPairs for better control."
     });
   }
+
+  const contactIdArray = Array.isArray(contactIds) ? contactIds : [contactIds];
+  const erpIdArray = Array.isArray(erpIds) ? erpIds : [erpIds];
+  
+  // Filter orders based on ERP IDs
+  const filteredOrders = orders.filter(order => erpIdArray.includes(order.erpId));
+
+  // Retorna apenas os campos desejados em formato de lista
+  const simplifiedOrders = filteredOrders.map(order => ({
+    id: order.identifier,
+    contactId: order.contactId,
+    status: order.status,
+    CSR: order.CSRName,
+    CSREmail: order.CSREmail,
+    poNumber: order.poNumber || null,
+    name: order.name,
+    date: order.date,
+    company: order.companyName
+  }));
+
+  res.json(simplifiedOrders);
+
+} catch (error) {
+  res.status(500).json({
+    success: false,
+    message: "Internal server error"
+  });
+}
 });
 
 // Get contacts by email - New endpoint to show multiple associations
@@ -2428,7 +2420,7 @@ app.post('/orderItems', (req, res) => {
 
 // Get order items - Legacy endpoint (GET)
 app.get('/orders/:orderId/items', (req, res) => {
-  try {
+ try {
     const { orderId } = req.params;
     const { erpId } = req.query;
     
@@ -2439,19 +2431,20 @@ app.get('/orders/:orderId/items', (req, res) => {
       });
     }
 
-    const filteredItems = orderItems.filter(item => 
-      item.orderId === orderId && item.erpId === erpId
-    );
+    const filteredItems = orderItems
+      .filter(item => item.orderId === orderId && item.erpId === erpId)
+      .map(item => ({
+        erpId: item.erpId,
+        id: item.identifier,  // renomeando identifier para id
+        name: item.name,
+        quantity: item.quantity,
+        size: item.size,
+        unitPrice: item.unitPrice,
+        orderId: item.orderId,
+        approvers: item.approvers
+      }));
 
-    res.json({
-      orderItems: filteredItems,
-      metadata: {
-        orderId: orderId,
-        erpId: erpId,
-        totalItems: filteredItems.length
-      },
-      note: "Consider using POST /orderItems for more flexible filtering"
-    });
+    res.json(filteredItems);
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -2459,6 +2452,44 @@ app.get('/orders/:orderId/items', (req, res) => {
     });
   }
 });
+
+// Serviço dummy
+app.get("/orderItemAsset", async (req, res) => {
+  try {
+    const { ERPID, OrderId, OrderItemId, Type } = req.query;
+
+    // URL dummy de exemplo
+    let fileUrl =
+      Type === "jpg"
+        ? "https://cdn.pixabay.com/photo/2018/02/16/02/03/pocket-watch-3156771_1280.jpg"
+        : "https://drive.usercontent.google.com/download?id=1gXl2oK9UJRni4O8dOm1qbXoNEEGX1ApJ&export=download&authuser=1&confirm=t&uuid=a87bbb66-8585-48c8-931d-03c9de57943a&at=AN8xHorygVDVJgBZZgk3Q7-yXRwh:1758572115769";
+
+    // Agente HTTPS que ignora SSL inválido (apenas para DEV)
+    const agent = new https.Agent({ rejectUnauthorized: false });
+
+    // Faz o download do arquivo como binário
+    const response = await axios.get(fileUrl, {
+      responseType: "arraybuffer",
+      httpsAgent: agent,
+    });
+
+    // Converte para base64
+    const fileBase64 = Buffer.from(response.data, "binary").toString("base64");
+
+    // Define contentType dinamicamente
+    const contentType = Type === "jpg" ? "image/jpeg" : "application/pdf";
+
+    // Retorna no formato solicitado
+    res.json({
+      contentType,
+      encodedFile: fileBase64,
+    });
+  } catch (error) {
+    console.error("Erro ao converter URL:", error.message);
+    res.status(500).json({ error: "Falha ao converter arquivo para base64" });
+  }
+});
+
 
 // Get shipments
 app.get('/orders/:orderId/shipments', (req, res) => {
@@ -2582,6 +2613,73 @@ app.put('/orders/:orderId/status', (req, res) => {
     });
   }
 });
+
+// POST: Update order status
+app.post('/updateOrder', (req, res) => {
+  try {
+    const { erpId, orderId, status } = req.body;
+
+    // Validações
+    if (!erpId) {
+      return res.status(400).json({
+        success: false,
+        message: "erpId is required in request body"
+      });
+    }
+
+    if (!orderId) {
+      return res.status(400).json({
+        success: false,
+        message: "orderId is required in request body"
+      });
+    }
+
+    if (!status) {
+      return res.status(400).json({
+        success: false,
+        message: "status is required in request body"
+      });
+    }
+
+    const validStatuses = ['pending', 'approved', 'rejected', 'shipped', 'delivered'];
+    if (!validStatuses.includes(status)) {
+      return res.status(400).json({
+        success: false,
+        message: `Invalid status. Valid options: ${validStatuses.join(', ')}`
+      });
+    }
+
+    // Procura o pedido
+    const orderIndex = orders.findIndex(order => 
+      order.identifier === String(orderId) && order.erpId === erpId
+    );
+
+    if (orderIndex === -1) {
+      return res.status(404).json({
+        success: false,
+        message: "Order not found"
+      });
+    }
+
+    // Atualiza status
+    orders[orderIndex].status = status;
+
+    res.json({
+      success: true,
+      message: `Order ${orderId} status updated to ${status}`,
+      timestamp: new Date().toISOString(),
+      order: orders[orderIndex]
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      timestamp: new Date().toISOString()
+    });
+  }
+});
+
 
 // PUT: Update proof status (commented out as proofs array was removed)
 /*
