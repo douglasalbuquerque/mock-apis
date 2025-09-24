@@ -2253,42 +2253,70 @@ app.post('/orders', (req, res) => {
 // Get orders (legacy GET endpoint for backward compatibility)
 app.get('/orders', (req, res) => {
   try {
-  const { contactIds, erpIds } = req.query;
-  
-  if (!contactIds || !erpIds) {
-    return res.status(400).json({
+    const { contactIds, erpId, orderId } = req.query;
+    
+    // erpIds é obrigatório
+    if (!erpId) {
+      return res.status(400).json({
+        success: false,
+        message: "erpId parameter is required"
+      });
+    }
+
+    // Deve ter pelo menos contactIds ou orderId
+    if (!contactIds && !orderId) {
+      return res.status(400).json({
+        success: false,
+        message: "Either contactIds or orderId parameter is required"
+      });
+    }
+
+    const erpIdArray = Array.isArray(erpId) ? erpId : [erpId];
+    
+    // Filter orders based on ERP IDs primeiro
+    let filteredOrders = orders.filter(order => erpIdArray.includes(order.erpId));
+
+    // Se orderId foi fornecido, filtra por ele
+    if (orderId) {
+      filteredOrders = filteredOrders.filter(order => order.identifier === orderId);
+      
+      // Se também foi fornecido contactIds, valida se o orderId está associado aos contactIds
+      if (contactIds) {
+        const contactIdArray = Array.isArray(contactIds) ? contactIds : [contactIds];
+        filteredOrders = filteredOrders.filter(order => 
+          contactIdArray.includes(order.contactId)
+        );
+      }
+    } 
+    // Se apenas contactIds foi fornecido (sem orderId)
+    else if (contactIds) {
+      const contactIdArray = Array.isArray(contactIds) ? contactIds : [contactIds];
+      filteredOrders = filteredOrders.filter(order => 
+        contactIdArray.includes(order.contactId)
+      );
+    }
+
+    // Retorna apenas os campos desejados em formato de lista
+    const simplifiedOrders = filteredOrders.map(order => ({
+      id: order.identifier,
+      contactId: order.contactId,
+      status: order.status,
+      CSR: order.CSRName,
+      CSREmail: order.CSREmail,
+      poNumber: order.poNumber || null,
+      name: order.name,
+      date: order.date,
+      company: order.companyName
+    }));
+
+    res.json(simplifiedOrders);
+
+  } catch (error) {
+    res.status(500).json({
       success: false,
-      message: "contactIds and erpIds parameters are required. Consider using POST /orders with contactErpPairs for better control."
+      message: "Internal server error"
     });
   }
-
-  const contactIdArray = Array.isArray(contactIds) ? contactIds : [contactIds];
-  const erpIdArray = Array.isArray(erpIds) ? erpIds : [erpIds];
-  
-  // Filter orders based on ERP IDs
-  const filteredOrders = orders.filter(order => erpIdArray.includes(order.erpId));
-
-  // Retorna apenas os campos desejados em formato de lista
-  const simplifiedOrders = filteredOrders.map(order => ({
-    id: order.identifier,
-    contactId: order.contactId,
-    status: order.status,
-    CSR: order.CSRName,
-    CSREmail: order.CSREmail,
-    poNumber: order.poNumber || null,
-    name: order.name,
-    date: order.date,
-    company: order.companyName
-  }));
-
-  res.json(simplifiedOrders);
-
-} catch (error) {
-  res.status(500).json({
-    success: false,
-    message: "Internal server error"
-  });
-}
 });
 
 // Get contacts by email - New endpoint to show multiple associations
