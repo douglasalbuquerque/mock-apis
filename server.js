@@ -1879,7 +1879,7 @@ let orderItems = [
     unitPrice: 15.00,
     status: "pending",
     orderId: "ORD_019",
-    approvers: ["emily.davis@startuphub.com"],
+    approvers: [{contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"}],
     imageUrl: "https://cdn.example.com/proofs/tshirt_proof.jpg",
     erpId: "ERP_NETSUITE_01",
     size: "M",
@@ -1907,7 +1907,7 @@ let orderItems = [
     unitPrice: 15.00,
     status: "pending",
     orderId: "ORD_019",
-    approvers: ["emily.davis@startuphub.com"],
+    approvers: [{contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"}],
     imageUrl: "https://cdn.example.com/proofs/tshirt_proof.jpg",
     erpId: "ERP_NETSUITE_01",
     size: "M",
@@ -1921,7 +1921,9 @@ let orderItems = [
           unitPrice: 10.00,
           status: "pending",
           orderId: "ORD_020_1",
-          approvers: ["irodriguez@globalbiz.com", "finance@globalbiz.com","udney.carvalho@axians.com"],
+          approvers: [{contactId: "CONT_021", email:"isabella.r@globalbiz.com", status:"0"}, 
+                      {contactId: "999998", email:"udney.carvalho@axians.com", status:"0"},
+                      {contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"}],
           imageUrl: "https://cdn.pixabay.com/photo/2019/09/02/15/43/smarthome-4447519_1280.jpg",
           erpId: "ERP_SF_03",
           size: "32GB",
@@ -1935,7 +1937,9 @@ let orderItems = [
           unitPrice: 2.00,
           status: "pending",
           orderId: "ORD_020_1",
-          approvers: ["irodriguez@globalbiz.com", "finance@globalbiz.com","udney.carvalho@axians.com","emily.davis@startuphub.com"],
+          approvers: [{contactId: "CONT_021", email:"isabella.r@globalbiz.com", status:"0"}, 
+                      {contactId: "999998", email:"udney.carvalho@axians.com", status:"0"},
+                      {contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"}],
           imageUrl: "https://cdn.pixabay.com/photo/2017/08/14/16/15/earphone-2640990_1280.jpg",
           erpId: "ERP_SF_03",
           size: "Standard",
@@ -1949,7 +1953,9 @@ let orderItems = [
           unitPrice: 50.00,
           status: "pending",
           orderId: "ORD_020_2",
-          approvers: ["irodriguez@globalbiz.com", "it.dept@globalbiz.com","udney.carvalho@axians.com","emily.davis@startuphub.com"],
+          approvers: [{contactId: "CONT_021", email:"isabella.r@globalbiz.com", status:"0"}, 
+                      {contactId: "999998", email:"udney.carvalho@axians.com", status:"0"},
+                      {contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"}],
           imageUrl: "https://cdn.pixabay.com/photo/2019/07/14/16/19/desk-4337491_1280.jpg",
           erpId: "ERP_SF_03",
           size: "Standard",
@@ -1963,7 +1969,9 @@ let orderItems = [
           unitPrice: 500.00,
           status: "pending",
           orderId: "ORD_020_2",
-          approvers: ["irodriguez@globalbiz.com", "emily.davis@startuphub.com","udney.carvalho@axians.com"],
+          approvers: [{contactId: "CONT_021", email:"isabella.r@globalbiz.com", status:"0"}, 
+                      {contactId: "999998", email:"udney.carvalho@axians.com", status:"0"},
+                      {contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"}],
           imageUrl: "https://cdn.pixabay.com/photo/2025/08/28/05/57/robot-9801120_1280.jpg",
           erpId: "ERP_SF_03",
           size: "Large",
@@ -1977,7 +1985,9 @@ let orderItems = [
           unitPrice: 5.00,
           status: "pending",
           orderId: "ORD_020_3",
-          approvers: ["irodriguez@globalbiz.com", "emily.davis@startuphub.com","udney.carvalho@axians.com"],
+          approvers: [{contactId: "CONT_021", email:"isabella.r@globalbiz.com", status:"0"}, 
+                      {contactId: "999998", email:"udney.carvalho@axians.com", status:"0"},
+                      {contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"}],
           imageUrl: "https://cdn.pixabay.com/photo/2021/10/24/09/43/apple-watch-6737515_1280.jpg",
           erpId: "ERP_SF_03",
           size: "Letter",
@@ -1991,7 +2001,9 @@ let orderItems = [
           unitPrice: 4.00,
           status: "pending",
           orderId: "ORD_020_3",
-          approvers: ["irodriguez@globalbiz.com", "emily.davis@startuphub.com","udney.carvalho@axians.com"],
+          approvers: [{contactId: "CONT_021", email:"isabella.r@globalbiz.com", status:"0"}, 
+                      {contactId: "999998", email:"udney.carvalho@axians.com", status:"0"},
+                      {contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"}],
           imageUrl: "https://cdn.pixabay.com/photo/2018/02/16/02/03/pocket-watch-3156771_1280.jpg",
           erpId: "ERP_SF_03",
           size: "Standard",
@@ -2005,7 +2017,10 @@ let orderItems = [
           unitPrice: 10.00,
           status: "pending",
           orderId: "ORD_021",
-          approvers: ["irodriguez@globalbiz.com", "finance@globalbiz.com","udney.carvalho@axians.com","sarah.collins@vomelademo.com"],
+          approvers: [{contactId: "CONT_021", email:"isabella.r@globalbiz.com", status:"0"}, 
+                      {contactId: "999998", email:"udney.carvalho@axians.com", status:"0"},
+                      {contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"},
+                      {contactId: "CONT_019", email:"sarah.collins@vomelademo.com", status:"0"}],
           imageUrl: "https://cdn.pixabay.com/photo/2019/09/02/15/43/smarthome-4447519_1280.jpg",
           erpId: "ERP_SAP_05",
           size: "32GB",
@@ -2019,7 +2034,10 @@ let orderItems = [
           unitPrice: 4.00,
           status: "pending",
           orderId: "ORD_021",
-          approvers: ["irodriguez@globalbiz.com", "emily.davis@startuphub.com","udney.carvalho@axians.com","sarah.collins@vomelademo.com"],
+          approvers: [{contactId: "CONT_021", email:"isabella.r@globalbiz.com", status:"0"}, 
+                      {contactId: "999998", email:"udney.carvalho@axians.com", status:"0"},
+                      {contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"},
+                      {contactId: "CONT_019", email:"sarah.collins@vomelademo.com", status:"0"}],
           imageUrl: "https://cdn.pixabay.com/photo/2018/02/16/02/03/pocket-watch-3156771_1280.jpg",
           erpId: "ERP_SAP_05",
           size: "Standard",
@@ -2033,7 +2051,10 @@ let orderItems = [
           unitPrice: 5.00,
           status: "pending",
           orderId: "ORD_021",
-          approvers: ["irodriguez@globalbiz.com", "emily.davis@startuphub.com","udney.carvalho@axians.com","sarah.collins@vomelademo.com"],
+          approvers: [{contactId: "CONT_021", email:"isabella.r@globalbiz.com", status:"0"}, 
+                      {contactId: "999998", email:"udney.carvalho@axians.com", status:"0"},
+                      {contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"},
+                      {contactId: "CONT_019", email:"sarah.collins@vomelademo.com", status:"0"}],
           imageUrl: "https://cdn.pixabay.com/photo/2021/10/24/09/43/apple-watch-6737515_1280.jpg",
           erpId: "ERP_SAP_05",
           size: "Letter",
@@ -2047,7 +2068,10 @@ let orderItems = [
           unitPrice: 5.00,
           status: "pending",
           orderId: "ORD_022",
-          approvers: ["irodriguez@globalbiz.com", "emily.davis@startuphub.com","udney.carvalho@axians.com","sarah.collins@vomelademo.com"],
+          approvers: [{contactId: "CONT_021", email:"isabella.r@globalbiz.com", status:"0"}, 
+                      {contactId: "999998", email:"udney.carvalho@axians.com", status:"0"},
+                      {contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"},
+                      {contactId: "CONT_019", email:"sarah.collins@vomelademo.com", status:"0"}],
           imageUrl: "https://cdn.pixabay.com/photo/2021/10/24/09/43/apple-watch-6737515_1280.jpg",
           erpId: "ERP_SAP_05",
           size: "Letter",
@@ -2061,7 +2085,10 @@ let orderItems = [
           unitPrice: 10.00,
           status: "pending",
           orderId: "ORD_032",
-          approvers: ["irodriguez@globalbiz.com", "finance@globalbiz.com","udney.carvalho@axians.com","emily.roberts@vomelademo.com"],
+          approvers: [{contactId: "CONT_021", email:"isabella.r@globalbiz.com", status:"0"}, 
+                      {contactId: "999998", email:"udney.carvalho@axians.com", status:"0"},
+                      {contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"},
+                      {contactId: "CONT_022", email:"emily.roberts@vomelademo.com", status:"0"}],
           imageUrl: "https://cdn.pixabay.com/photo/2019/09/02/15/43/smarthome-4447519_1280.jpg",
           erpId: "ERP_ORACLE_03",
           size: "32GB",
@@ -2075,7 +2102,10 @@ let orderItems = [
           unitPrice: 2.00,
           status: "pending",
           orderId: "ORD_032",
-          approvers: ["irodriguez@globalbiz.com", "finance@globalbiz.com","udney.carvalho@axians.com","emily.davis@startuphub.com","emily.roberts@vomelademo.com"],
+          approvers: [{contactId: "CONT_021", email:"isabella.r@globalbiz.com", status:"0"}, 
+                      {contactId: "999998", email:"udney.carvalho@axians.com", status:"0"},
+                      {contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"},
+                      {contactId: "CONT_022", email:"emily.roberts@vomelademo.com", status:"0"}],
           imageUrl: "https://cdn.pixabay.com/photo/2017/08/14/16/15/earphone-2640990_1280.jpg",
           erpId: "ERP_ORACLE_03",
           size: "Standard",
@@ -2089,7 +2119,10 @@ let orderItems = [
           unitPrice: 50.00,
           status: "pending",
           orderId: "ORD_032",
-          approvers: ["irodriguez@globalbiz.com", "it.dept@globalbiz.com","udney.carvalho@axians.com","emily.davis@startuphub.com","emily.roberts@vomelademo.com"],
+          approvers: [{contactId: "CONT_021", email:"isabella.r@globalbiz.com", status:"0"}, 
+                      {contactId: "999998", email:"udney.carvalho@axians.com", status:"0"},
+                      {contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"},
+                      {contactId: "CONT_022", email:"emily.roberts@vomelademo.com", status:"0"}],
           imageUrl: "https://cdn.pixabay.com/photo/2019/07/14/16/19/desk-4337491_1280.jpg",
           erpId: "ERP_ORACLE_03",
           size: "Standard",
@@ -2103,7 +2136,10 @@ let orderItems = [
           unitPrice: 10.00,
           status: "pending",
           orderId: "ORD_033",
-          approvers: ["irodriguez@globalbiz.com", "finance@globalbiz.com","udney.carvalho@axians.com","emily.roberts@vomelademo.com"],
+          approvers: [{contactId: "CONT_021", email:"isabella.r@globalbiz.com", status:"0"}, 
+                      {contactId: "999998", email:"udney.carvalho@axians.com", status:"0"},
+                      {contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"},
+                      {contactId: "CONT_022", email:"emily.roberts@vomelademo.com", status:"0"}],
           imageUrl: "https://cdn.pixabay.com/photo/2019/09/02/15/43/smarthome-4447519_1280.jpg",
           erpId: "ERP_ORACLE_03",
           size: "32GB",
@@ -2111,6 +2147,8 @@ let orderItems = [
           paperStock: "N/A"
         }
 ];
+
+
 
 // Shipments dummy data - Updated with new orders
 // ======= SHIPMENTS DUMMY DATA =======
@@ -2811,11 +2849,127 @@ app.get('/orderItems', (req, res) => {
         size: item.size,
         unitPrice: item.unitPrice,
         orderId: item.orderId,
-        approvers: item.approvers
+        /*approvers: item.approvers*/
       }));
 
     res.json(filteredItems);
   } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Internal server error"
+    });
+  }
+});
+
+app.get('/proofs-by-item', (req, res) => {
+  try {
+    const { orderId, erpId, orderItemId } = req.query;
+    
+    if (!erpId) {
+      return res.status(400).json({
+        success: false,
+        message: "erpId parameter is required"
+      });
+    }
+
+    // Filtra os items baseado nos parâmetros fornecidos
+    let filteredItems = orderItems.filter(item => {
+      let matches = item.erpId === erpId;
+      
+      if (orderId) {
+        matches = matches && item.orderId === orderId;
+      }
+      
+      if (orderItemId) {
+        matches = matches && item.identifier === orderItemId;
+      }
+      
+      return matches;
+    });
+
+    // Para cada item filtrado, gera os proofs baseado nos approvers
+    const proofs = [];
+    
+    filteredItems.forEach(item => {
+      if (item.approvers && Array.isArray(item.approvers)) {
+        item.approvers.forEach(approver => {
+          proofs.push({
+            id: Math.floor(Math.random() * 100),
+            contactId: approver.contactId,
+            status: approver.status,
+            orderId: item.orderId,
+            orderItemId: item.identifier
+          });
+        });
+      }
+    });
+
+    res.json(proofs);
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Internal server error"
+    });
+  }
+});
+
+app.post('/proof-update', (req, res) => {
+  try {
+    const { erpId, orderId, orderItemId, contactId, status } = req.body;
+    
+    // Validate required parameters
+    if (!erpId || !orderId || !orderItemId || !contactId || !status) {
+      return res.status(400).json({
+        success: false,
+        message: "All parameters are required: erpId, orderId, orderItemId, contactId, status"
+      });
+    }
+
+    // Find the specific order item
+    const item = orderItems.find(item => 
+      item.erpId === erpId && 
+      item.orderId === orderId && 
+      item.identifier === orderItemId
+    );
+
+    // Check if item exists
+    if (!item) {
+      return res.status(404).json({
+        success: false,
+        message: "Order item not found"
+      });
+    }
+
+    // Find the specific approver within the item
+    const approver = item.approvers?.find(app => app.contactId === contactId);
+
+    // Check if approver exists
+    if (!approver) {
+      return res.status(404).json({
+        success: false,
+        message: "Approver not found for this order item"
+      });
+    }
+
+    // Update the approver status
+    approver.status = status;
+
+    // Return success response with updated data
+    res.json({
+      success: true,
+      message: "Approver status updated successfully",
+      data: {
+        erpId: item.erpId,
+        orderId: item.orderId,
+        orderItemId: item.identifier,
+        contactId: approver.contactId,
+        email: approver.email,
+        status: approver.status
+      }
+    });
+
+  } catch (error) {
+    // Handle any unexpected errors
     res.status(500).json({
       success: false,
       message: "Internal server error"
