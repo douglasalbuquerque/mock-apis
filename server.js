@@ -2896,6 +2896,7 @@ app.get('/proofs-by-item', (req, res) => {
           proofs.push({
             id: Math.floor(Math.random() * 100),
             contactId: approver.contactId,
+            email: approver.email,
             status: approver.status,
             orderId: item.orderId,
             orderItemId: item.identifier
