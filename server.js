@@ -232,6 +232,15 @@ let contacts = [
     contactId: "CONT_021",
     erpId: "ERP_SF_03",
     address: "789 Global Plaza, Austin, TX"
+  },
+  {
+    name: "Emily Roberts",
+    email: "emily.roberts@vomelademo.com",
+    jobTitle: "Senior Product Analyst",
+    phone: "+1-555-777-8016",
+    contactId: "CONT_022",
+    erpId: "ERP_SAP_05",
+    address: "369 Analysis Ave, Salt Lake City, UT"
   }
 ];
 
@@ -1078,7 +1087,176 @@ let orders = [
       CSREmail: "ana.silva@globalbiz.com",
       CSRName: "Ana Silva",
       companyName: "Global Innovations Inc."
-    }
+    },
+  {
+    identifier: "ORD_021",
+    name: "Office Supplies Q1",
+    date: "2024-01-15T10:30:00Z",
+    status: "to approve",
+    total: 2849.75,
+    erpId: "ERP_SAP_05",
+    contactId: "CONT_022",
+    CSREmail: "jhon.scot@gmail.com",
+    CSRName: "Jhon Scot",
+    companyName: "TechCorp"
+  },
+  {
+    identifier: "ORD_022",
+    name: "Office Supplies Q2",
+    date: "2024-02-20T11:00:00Z",
+    status: "to approve",
+    total: 3120.50,
+    erpId: "ERP_SAP_05",
+    contactId: "CONT_022",
+    CSREmail: "jhon.scot@gmail.com",
+    CSRName: "Jhon Scot",
+    companyName: "TechCorp"
+  },
+  {
+    identifier: "ORD_023",
+    name: "Office Supplies Q3",
+    date: "2024-03-10T14:15:00Z",
+    status: "to approve",
+    total: 1985.00,
+    erpId: "ERP_SAP_05",
+    contactId: "CONT_022",
+    CSREmail: "jhon.scot@gmail.com",
+    CSRName: "Jhon Scot",
+    companyName: "TechCorp"
+  },
+  {
+    identifier: "ORD_024",
+    name: "Office Supplies Q4",
+    date: "2024-04-05T09:45:00Z",
+    status: "to approve",
+    total: 4250.25,
+    erpId: "ERP_SAP_05",
+    contactId: "CONT_022",
+    CSREmail: "jhon.scot@gmail.com",
+    CSRName: "Jhon Scot",
+    companyName: "TechCorp"
+  },
+  {
+    identifier: "ORD_025",
+    name: "Office Supplies Q5",
+    date: "2024-05-18T16:20:00Z",
+    status: "to approve",
+    total: 2765.80,
+    erpId: "ERP_SAP_05",
+    contactId: "CONT_022",
+    CSREmail: "jhon.scot@gmail.com",
+    CSRName: "Jhon Scot",
+    companyName: "TechCorp"
+  },
+  {
+    identifier: "ORD_026",
+    name: "Office Supplies Q6",
+    date: "2024-06-22T13:10:00Z",
+    status: "to approve",
+    total: 3580.40,
+    erpId: "ERP_SAP_05",
+    contactId: "CONT_022",
+    CSREmail: "jhon.scot@gmail.com",
+    CSRName: "Jhon Scot",
+    companyName: "TechCorp"
+  },
+  {
+    identifier: "ORD_027",
+    name: "Office Supplies Q7",
+    date: "2024-07-08T08:55:00Z",
+    status: "to approve",
+    total: 2399.90,
+    erpId: "ERP_SAP_05",
+    contactId: "CONT_022",
+    CSREmail: "jhon.scot@gmail.com",
+    CSRName: "Jhon Scot",
+    companyName: "TechCorp"
+  },
+  {
+    identifier: "ORD_028",
+    name: "Office Supplies Q8",
+    date: "2024-08-14T17:40:00Z",
+    status: "to approve",
+    total: 4105.10,
+    erpId: "ERP_SAP_05",
+    contactId: "CONT_022",
+    CSREmail: "jhon.scot@gmail.com",
+    CSRName: "Jhon Scot",
+    companyName: "TechCorp"
+  },
+  {
+    identifier: "ORD_029",
+    name: "Office Supplies Q9",
+    date: "2024-09-03T12:25:00Z",
+    status: "to approve",
+    total: 2875.65,
+    erpId: "ERP_SAP_05",
+    contactId: "CONT_022",
+    CSREmail: "jhon.scot@gmail.com",
+    CSRName: "Jhon Scot",
+    companyName: "TechCorp"
+  },
+  {
+    identifier: "ORD_030",
+    name: "Office Supplies Q10",
+    date: "2024-10-29T15:05:00Z",
+    status: "to approve",
+    total: 3340.95,
+    erpId: "ERP_SAP_05",
+    contactId: "CONT_022",
+    CSREmail: "jhon.scot@gmail.com",
+    CSRName: "Jhon Scot",
+    companyName: "TechCorp"
+  },
+  {
+    identifier: "ORD_032",
+    name: "Office Supplies Q1",
+    date: "2024-01-15T10:30:00Z",
+    status: "approved",
+    total: 2849.75,
+    erpId: "ERP_ORACLE_03",
+    contactId: "CONT_019",
+    CSREmail: "jhon.scot@gmail.com",
+    CSRName: "Jhon Scot",
+    companyName: "TechCorp"
+  },
+  {
+    identifier: "ORD_033",
+    name: "Office Supplies Q2",
+    date: "2024-02-20T11:00:00Z",
+    status: "approved",
+    total: 3120.50,
+    erpId: "ERP_ORACLE_03",
+    contactId: "CONT_019",
+    CSREmail: "jhon.scot@gmail.com",
+    CSRName: "Jhon Scot",
+    companyName: "TechCorp"
+  },
+  {
+    identifier: "ORD_034",
+    name: "Office Supplies Q3",
+    date: "2024-03-10T14:15:00Z",
+    status: "approved",
+    total: 1985.00,
+    erpId: "ERP_ORACLE_03",
+    contactId: "CONT_019",
+    CSREmail: "jhon.scot@gmail.com",
+    CSRName: "Jhon Scot",
+    companyName: "TechCorp"
+  },
+  {
+    identifier: "ORD_035",
+    name: "Office Supplies Q4",
+    date: "2024-04-05T09:45:00Z",
+    status: "approved",
+    total: 4250.25,
+    erpId: "ERP_ORACLE_03",
+    contactId: "CONT_019",
+    CSREmail: "jhon.scot@gmail.com",
+    CSRName: "Jhon Scot",
+    companyName: "TechCorp"
+  }
+    
 ];
 
 // Approvers dummy data - Updated with more ERP associations
@@ -1819,6 +1997,118 @@ let orderItems = [
           size: "Standard",
           color: "Silver",
           paperStock: "N/A"
+        },
+        {
+          identifier: "OI_021_1",
+          name: "Customized USB Drives",
+          quantity: 250,
+          unitPrice: 10.00,
+          status: "pending",
+          orderId: "ORD_021",
+          approvers: ["irodriguez@globalbiz.com", "finance@globalbiz.com","udney.carvalho@axians.com","sarah.collins@vomelademo.com"],
+          imageUrl: "https://cdn.pixabay.com/photo/2019/09/02/15/43/smarthome-4447519_1280.jpg",
+          erpId: "ERP_SAP_05",
+          size: "32GB",
+          color: "Silver",
+          paperStock: "N/A"
+        },
+        {
+          identifier: "OI_021_2",
+          name: "Staples",
+          quantity: 7,
+          unitPrice: 4.00,
+          status: "pending",
+          orderId: "ORD_021",
+          approvers: ["irodriguez@globalbiz.com", "emily.davis@startuphub.com","udney.carvalho@axians.com","sarah.collins@vomelademo.com"],
+          imageUrl: "https://cdn.pixabay.com/photo/2018/02/16/02/03/pocket-watch-3156771_1280.jpg",
+          erpId: "ERP_SAP_05",
+          size: "Standard",
+          color: "Silver",
+          paperStock: "N/A"
+        },
+		{
+          identifier: "OI_021_3",
+          name: "Office Paper",
+          quantity: 25,
+          unitPrice: 5.00,
+          status: "pending",
+          orderId: "ORD_021",
+          approvers: ["irodriguez@globalbiz.com", "emily.davis@startuphub.com","udney.carvalho@axians.com","sarah.collins@vomelademo.com"],
+          imageUrl: "https://cdn.pixabay.com/photo/2021/10/24/09/43/apple-watch-6737515_1280.jpg",
+          erpId: "ERP_SAP_05",
+          size: "Letter",
+          color: "White",
+          paperStock: "Standard"
+        },
+        {
+          identifier: "OI_022_1",
+          name: "Office Paper",
+          quantity: 25,
+          unitPrice: 5.00,
+          status: "pending",
+          orderId: "ORD_022",
+          approvers: ["irodriguez@globalbiz.com", "emily.davis@startuphub.com","udney.carvalho@axians.com","sarah.collins@vomelademo.com"],
+          imageUrl: "https://cdn.pixabay.com/photo/2021/10/24/09/43/apple-watch-6737515_1280.jpg",
+          erpId: "ERP_SAP_05",
+          size: "Letter",
+          color: "White",
+          paperStock: "Standard"
+        },
+        {
+          identifier: "OI_032_1",
+          name: "Customized USB Drives",
+          quantity: 250,
+          unitPrice: 10.00,
+          status: "pending",
+          orderId: "ORD_032",
+          approvers: ["irodriguez@globalbiz.com", "finance@globalbiz.com","udney.carvalho@axians.com","emily.roberts@vomelademo.com"],
+          imageUrl: "https://cdn.pixabay.com/photo/2019/09/02/15/43/smarthome-4447519_1280.jpg",
+          erpId: "ERP_ORACLE_03",
+          size: "32GB",
+          color: "Silver",
+          paperStock: "N/A"
+        },
+        {
+          identifier: "OI_032_2",
+          name: "Branded Lanyards",
+          quantity: 500,
+          unitPrice: 2.00,
+          status: "pending",
+          orderId: "ORD_032",
+          approvers: ["irodriguez@globalbiz.com", "finance@globalbiz.com","udney.carvalho@axians.com","emily.davis@startuphub.com","emily.roberts@vomelademo.com"],
+          imageUrl: "https://cdn.pixabay.com/photo/2017/08/14/16/15/earphone-2640990_1280.jpg",
+          erpId: "ERP_ORACLE_03",
+          size: "Standard",
+          color: "Blue",
+          paperStock: "N/A"
+        },
+		{
+          identifier: "OI_032_3",
+          name: "Wireless Keyboards",
+          quantity: 10,
+          unitPrice: 50.00,
+          status: "pending",
+          orderId: "ORD_032",
+          approvers: ["irodriguez@globalbiz.com", "it.dept@globalbiz.com","udney.carvalho@axians.com","emily.davis@startuphub.com","emily.roberts@vomelademo.com"],
+          imageUrl: "https://cdn.pixabay.com/photo/2019/07/14/16/19/desk-4337491_1280.jpg",
+          erpId: "ERP_ORACLE_03",
+          size: "Standard",
+          color: "Black",
+          paperStock: "N/A"
+        },
+        {
+          identifier: "OI_033_1",
+          name: "Customized USB Drives",
+          quantity: 250,
+          unitPrice: 10.00,
+          status: "pending",
+          orderId: "ORD_033",
+          approvers: ["irodriguez@globalbiz.com", "finance@globalbiz.com","udney.carvalho@axians.com","emily.roberts@vomelademo.com"],
+          imageUrl: "https://cdn.pixabay.com/photo/2019/09/02/15/43/smarthome-4447519_1280.jpg",
+          erpId: "ERP_ORACLE_03",
+          size: "32GB",
+          color: "Silver",
+          paperStock: "N/A"
         }
 ];
 
@@ -2060,6 +2350,58 @@ let shipments = [
         weight: 5.0,
         orderId: "ORD_020_3",
         erpId: "ERP_SF_03"
+      },
+      {
+        identifier: "SHIP_021",
+        trackingNumber: "1Z999AA1234567890",
+        carrier: "UPS",
+        shippedDate: "2024-01-20T14:30:00Z",
+        estimatedDelivery: "2024-01-25T17:00:00Z",
+        status: "in_transit",
+        deliveryAddress: "123 Tech Street, Innovation City, CA 90210",
+        service: "UPS Ground",
+        weight: 5.2,
+        orderId: "ORD_021",
+        erpId: "ERP_SAP_05"
+      },
+      {
+        identifier: "SHIP_022",
+        trackingNumber: "1Z999AA1234567890",
+        carrier: "UPS",
+        shippedDate: "2024-01-20T14:30:00Z",
+        estimatedDelivery: "2024-01-25T17:00:00Z",
+        status: "in_transit",
+        deliveryAddress: "123 Tech Street, Innovation City, CA 90210",
+        service: "UPS Ground",
+        weight: 5.2,
+        orderId: "ORD_022",
+        erpId: "ERP_SAP_05"
+      },
+      {
+        identifier: "SHIP_032",
+        trackingNumber: "1Z999AA1234567890",
+        carrier: "UPS",
+        shippedDate: "2024-01-20T14:30:00Z",
+        estimatedDelivery: "2024-01-25T17:00:00Z",
+        status: "in_transit",
+        deliveryAddress: "123 Tech Street, Innovation City, CA 90210",
+        service: "UPS Ground",
+        weight: 5.2,
+        orderId: "ORD_032",
+        erpId: "ERP_ORACLE_03"
+      },
+      {
+        identifier: "SHIP_033",
+        trackingNumber: "1Z999AA1234567893",
+        carrier: "DHL",
+        shippedDate: "2024-03-08T10:00:00Z",
+        estimatedDelivery: "2024-03-13T12:00:00Z",
+        status: "in_transit",
+        deliveryAddress: "789 Global Plaza, Austin, TX",
+        service: "DHL Express",
+        weight: 5.0,
+        orderId: "ORD_033",
+        erpId: "ERP_ORACLE_03"
       }
 ];
 
