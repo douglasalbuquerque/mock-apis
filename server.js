@@ -3042,12 +3042,36 @@ app.get("/orderItemAsset", async (req, res) => {
   try {
     const { ERPID, OrderId, OrderItemId, Type } = req.query;
 
+    const orderItem = orderItems.find(
+      (item) => item.identifier === OrderItemId && item.orderId === OrderId
+    );
+
+    if (!orderItem) {
+      return res.status(404).json({ error: "OrderItem não encontrado" });
+    }
+
+    let fileUrl;
+
+    if (Type === "jpg") {
+      // Só aplica a lógica do orderItem se for jpg
+      if (orderItem.imageUrl && orderItem.imageUrl.includes("pixabay")) {
+        fileUrl = orderItem.imageUrl;
+      } else {
+        fileUrl =
+          "https://cdn.pixabay.com/photo/2018/02/16/02/03/pocket-watch-3156771_1280.jpg";
+      }
+    } else {
+      // Para PDF ou outros formatos
+      fileUrl =
+        "https://drive.usercontent.google.com/download?id=1gXl2oK9UJRni4O8dOm1qbXoNEEGX1ApJ&export=download&authuser=1&confirm=t&uuid=a87bbb66-8585-48c8-931d-03c9de57943a&at=AN8xHorygVDVJgBZZgk3Q7-yXRwh:1758572115769";
+    }
+
     // URL dummy de exemplo
-    let fileUrl =
+    /*let fileUrl =
       Type === "jpg"
         ? "https://cdn.pixabay.com/photo/2018/02/16/02/03/pocket-watch-3156771_1280.jpg"
         : "https://drive.usercontent.google.com/download?id=1gXl2oK9UJRni4O8dOm1qbXoNEEGX1ApJ&export=download&authuser=1&confirm=t&uuid=a87bbb66-8585-48c8-931d-03c9de57943a&at=AN8xHorygVDVJgBZZgk3Q7-yXRwh:1758572115769";
-
+    */
     // Agente HTTPS que ignora SSL inválido (apenas para DEV)
     const agent = new https.Agent({ rejectUnauthorized: false });
 
