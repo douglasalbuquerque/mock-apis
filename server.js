@@ -2158,7 +2158,7 @@ let orderItems = [
           orderId: "ORD_018",
           approvers: [{contactId: "CONT_022", email:"emily.roberts@vomelademo.com", status:"0"},
                       {contactId: "CONT_019", email:"sarah.collins@vomelademo.com", status:"0"}],
-          imageUrl: "https://cdn.pixabay.com/photo/2019/09/02/15/43/smarthome-4447519_1280.jpg",
+          imageUrl: "https://cdn.pixabay.com/photo/2013/07/12/16/28/magazine-150960_1280.png",
           erpId: "ERP_SF_03",
           size: "32GB",
           color: "Silver",
