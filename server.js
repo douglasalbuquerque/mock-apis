@@ -1212,7 +1212,7 @@ let orders = [
     identifier: "ORD_032",
     name: "Office Supplies Q1",
     date: "2024-01-15T10:30:00Z",
-    status: "approved",
+    status: "pending",
     total: 2849.75,
     erpId: "ERP_ORACLE_03",
     contactId: "CONT_019",
