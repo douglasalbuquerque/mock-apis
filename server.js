@@ -1793,11 +1793,11 @@ let orderItems = [
     name: "Performance Dashboard",
     quantity: 8,
     unitPrice: 190.00,
-    status: "approved",
+    status: "pending",
     orderId: "ORD_020",
     approvers: [{contactId: "CONT_022", email:"emily.roberts@vomelademo.com", status:"0"},
                       {contactId: "CONT_019", email:"sarah.collins@vomelademo.com", status:"0"}],
-    imageUrl: "https://cdn.example.com/proofs/performance_dashboard_proof.jpg",
+    imageUrl: "https://cdn.pixabay.com/photo/2013/07/12/16/28/magazine-150960_1280.png",
     erpId: "ERP_ORACLE_03",
     size: "Cloud License",
     color: "N/A",
@@ -1812,7 +1812,7 @@ let orderItems = [
     orderId: "ORD_020",
     approvers: [{contactId: "CONT_022", email:"emily.roberts@vomelademo.com", status:"0"},
                       {contactId: "CONT_019", email:"sarah.collins@vomelademo.com", status:"0"}],
-    imageUrl: "https://cdn.example.com/proofs/procurement_analysis_proof.jpg",
+    imageUrl: "https://cdn.pixabay.com/photo/2013/07/12/16/28/magazine-150960_1280.png",
     erpId: "ERP_ORACLE_03",
     size: "Enterprise Platform",
     color: "N/A",
@@ -1827,7 +1827,7 @@ let orderItems = [
     orderId: "ORD_020",
     approvers: [{contactId: "CONT_006", email:"emily.davis@startuphub.com", status:"0"},
                       {contactId: "CONT_019", email:"sarah.collins@vomelademo.com", status:"0"}],
-    imageUrl: "https://cdn.example.com/proofs/reporting_module_proof.jpg",
+    imageUrl: "https://cdn.pixabay.com/photo/2013/07/12/16/28/magazine-150960_1280.png",
     erpId: "ERP_ORACLE_03",
     size: "Software Module",
     color: "N/A",
@@ -2193,8 +2193,6 @@ let orderItems = [
           paperStock: "N/A"
         }
 ];
-
-
 
 // Shipments dummy data - Updated with new orders
 // ======= SHIPMENTS DUMMY DATA =======
