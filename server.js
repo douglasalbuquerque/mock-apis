@@ -1811,7 +1811,7 @@ let orderItems = [
     status: "pending",
     orderId: "ORD_020",
     approvers: [{contactId: "CONT_022", email:"emily.roberts@vomelademo.com", status:"0"},
-                      {contactId: "CONT_019", email:"sarah.collins@vomelademo.com", status:"0"}],
+                {contactId: "CONT_019", email:"sarah.collins@vomelademo.com", status:"0"}],
     imageUrl: "https://cdn.pixabay.com/photo/2013/07/12/16/28/magazine-150960_1280.png",
     erpId: "ERP_ORACLE_03",
     size: "Enterprise Platform",
@@ -2486,7 +2486,7 @@ let shipments = [
         deliveryAddress: "789 Global Plaza, Austin, TX",
         service: "DHL Express",
         weight: 5.0,
-        orderId: "ORD_017",
+        orderId: "ORD_3017",
         erpId: "ERP_ORACLE_03"
       },
       {
