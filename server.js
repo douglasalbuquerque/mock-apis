@@ -2343,7 +2343,7 @@ let shipments = [
     deliveryAddress: "246 Business Center Dr, Miami, FL",
     service: "FedEx Priority Overnight",
     weight: 3.5,
-    orderId: "ORD_013",
+    orderId: "ORD_001",
     erpId: "ERP_ORACLE_01"
   },
   {
@@ -2471,7 +2471,7 @@ let shipments = [
         estimatedDelivery: "2024-03-13T12:00:00Z",
         status: "shipped",
         deliveryAddress: "789 Global Plaza, Austin, TX",
-        service: "DHL Express",
+        service: "DHL   Express",
         weight: 5.0,
         orderId: "ORD_018",
         erpId: "ERP_ORACLE_03"
@@ -2497,7 +2497,7 @@ let shipments = [
         estimatedDelivery: "2024-03-13T12:00:00Z",
         status: "shipped",
         deliveryAddress: "789 Global Plaza, Austin, TX",
-        service: "DHL Express",
+        service: "DHL   Express",
         weight: 5.0,
         orderId: "ORD_014",
         erpId: "ERP_SAP_05"
