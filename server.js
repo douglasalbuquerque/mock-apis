@@ -2460,7 +2460,7 @@ let shipments = [
         deliveryAddress: "123 Tech Street, Innovation City, CA 90210",
         service: "UPS Ground",
         weight: 5.2,
-        orderId: "ORD_032",
+        orderId: "ORD_017",
         erpId: "ERP_ORACLE_03"
       },
       {
@@ -2473,7 +2473,7 @@ let shipments = [
         deliveryAddress: "789 Global Plaza, Austin, TX",
         service: "DHL Express",
         weight: 5.0,
-        orderId: "ORD_033",
+        orderId: "ORD_018",
         erpId: "ERP_ORACLE_03"
       },
       {
