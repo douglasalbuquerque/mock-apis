@@ -2486,7 +2486,7 @@ let shipments = [
         deliveryAddress: "789 Global Plaza, Austin, TX",
         service: "DHL Express",
         weight: 5.0,
-        orderId: "ORD_3017",
+        orderId: "ORD_31017",
         erpId: "ERP_ORACLE_03"
       },
       {
